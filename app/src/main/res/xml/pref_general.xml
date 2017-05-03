@@ -1,0 +1,18 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="switch_music"
+        android:title="Music"
+        android:summary="Turn the music on/off" />
+
+
+    <ListPreference
+        android:defaultValue="150"
+        android:key="text_speed"
+        android:summary="Decide how fast text appears"
+        android:title="@string/pref_text_speed"
+        android:entries="@array/pref_text_speed_options"
+        android:entryValues="@array/pref_text_speed_values"/>
+
+</PreferenceScreen>

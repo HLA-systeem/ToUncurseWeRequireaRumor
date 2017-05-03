@@ -1,0 +1,22 @@
+package nl.hr.touncursewerequirearumor;
+
+import nl.hr.touncursewerequirearumor.nl.hr.touncursewerequirearumor.enemies.Enemy;
+
+public class InterDimensionalLolicon extends Enemy {
+    private String name = "interdimensional Lolicon";
+    private String nameRes = "interdimensionallolicon";
+    private int hp = 80;
+    private int att = 50;
+    private int speed = 100;
+    private int hit = 100;
+
+    public InterDimensionalLolicon() {
+        super("interdimensional Lolicon", "interdimensionallolicon", 80, 50, 100, 100);
+    }
+
+
+    @Override
+    public String showsUpText() {
+        return "You've spotted an interdimensional Lolicon !";
+    }
+}
