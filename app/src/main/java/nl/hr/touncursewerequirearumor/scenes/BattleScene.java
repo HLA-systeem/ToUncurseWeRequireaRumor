@@ -111,6 +111,7 @@ public class BattleScene implements Scene {
                         if (((int) e.getX() > attBox.left && (int) e.getX() < attBox.right) && ((int) e.getY() > attBox.top && (int) e.getY() < attBox.bottom)) {
                             this.attButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
                             this.battleManager.setBattleState(new PlayerAttack(this.battleManager,this.player,this.enemy));
+                            this.battleManager.getBattleState().execute();
                         }
                         if (((int) e.getX() > runBox.left && (int) e.getX() < runBox.right) && ((int) e.getY() > runBox.top && (int) e.getY() < runBox.bottom)) {
                             this.runButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);

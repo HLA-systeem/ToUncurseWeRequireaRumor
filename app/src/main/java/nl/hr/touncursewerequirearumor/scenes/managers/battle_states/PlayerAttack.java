@@ -12,7 +12,6 @@ public class PlayerAttack extends BattleState{
 
     public PlayerAttack(BattleManager manager, Player player, Enemy enemy) {
         super(manager, player, enemy);
-        this.execute();
     }
 
     @Override
