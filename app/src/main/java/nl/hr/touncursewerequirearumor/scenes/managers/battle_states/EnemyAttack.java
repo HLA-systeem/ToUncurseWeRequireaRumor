@@ -15,7 +15,12 @@ public class EnemyAttack extends BattleState {
     public void execute() {
         BattleScene.clearBattleInfo();
         this.manager.addText(this.player.onDamage(this.enemy.getAtt()));
-        this.manager.setBattleState(new Setup(this.manager,this.player,this.enemy,false));
+        if(player.gameover()){
+            this.manager.setBattleState(new Aftermath(this.manager, this.player, this.enemy,"Defeated"));
+        }
+        else {
+            this.manager.setBattleState(new Setup(this.manager, this.player, this.enemy, false));
+        }
     }
 
 

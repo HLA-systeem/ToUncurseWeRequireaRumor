@@ -17,8 +17,7 @@ public class Run extends BattleState {
         BattleScene.clearBattleInfo();
         if(player.run(enemy.getSpeed())){
             manager.addText("You've managed to get away.");
-            manager.setBattleState(null);
-            //switch to search scene.
+            this.manager.setBattleState(new Aftermath(this.manager, this.player, this.enemy,"Escaped"));
         }
         else{
             manager.addText("You've can't escape!");

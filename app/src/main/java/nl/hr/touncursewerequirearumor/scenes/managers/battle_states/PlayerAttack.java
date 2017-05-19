@@ -25,6 +25,11 @@ public class PlayerAttack extends BattleState{
             manager.addText("You've missed!");
         }
 
-        this.manager.setBattleState(new EnemyAttack(this.manager, this.player, this.enemy)); //doet het de eerste keer niet.
+        if(enemy.defeated()){
+            this.manager.setBattleState(new Aftermath(this.manager, this.player, this.enemy,"Winner"));
+        }
+        else{
+            this.manager.setBattleState(new EnemyAttack(this.manager, this.player, this.enemy));
+        }
     }
 }

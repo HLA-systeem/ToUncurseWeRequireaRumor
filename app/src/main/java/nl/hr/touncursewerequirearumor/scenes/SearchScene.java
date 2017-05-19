@@ -11,7 +11,9 @@ import android.view.MotionEvent;
 
 import nl.hr.touncursewerequirearumor.Constants;
 import nl.hr.touncursewerequirearumor.R;
+import nl.hr.touncursewerequirearumor.scenes.managers.DrawVNstyle;
 import nl.hr.touncursewerequirearumor.scenes.managers.SceneManager;
+
 
 public class SearchScene implements Scene {
     private static String searchInfo;
@@ -47,9 +49,9 @@ public class SearchScene implements Scene {
         this.textHeight = (int)textPaint.getTextSize();
         this.searchBox = new Rect();
         this.searchBox.set(
-                ( (Constants.SCREEN_WIDTH / 2) /2) - (Constants.getTextWidth("ATTACK",this.textPaint)/2) -50,
+                ( (Constants.SCREEN_WIDTH / 3)/2)  - (Constants.getTextWidth("SEARCH",this.textPaint)/2) -50,
                 ( (Constants.SCREEN_HEIGHT - 100) - this.textHeight) - 50,
-                ( (Constants.SCREEN_WIDTH / 2) /2) + (Constants.getTextWidth("ATTACK",this.textPaint)/2) +50,
+                ( (Constants.SCREEN_WIDTH / 3)/2) + (Constants.getTextWidth("SEARCH",this.textPaint)/2) +50,
                 (Constants.SCREEN_HEIGHT - 100) +50);
 
 
@@ -80,21 +82,34 @@ public class SearchScene implements Scene {
 
     @Override
     public void update(MotionEvent e) {
+        if (e != null && DrawVNstyle.running == false) {
+            switch (e.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    if (((int) e.getX() > searchBox.left && (int) e.getX() < searchBox.right) && ((int) e.getY() > searchBox.top && (int) e.getY() < searchBox.bottom)) {
+                        this.searchButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonpress);
+                    }
+                    break;
+                case MotionEvent.ACTION_UP:
+                    if (((int) e.getX() > searchBox.left && (int) e.getX() < searchBox.right) && ((int) e.getY() > searchBox.top && (int) e.getY() < searchBox.bottom)) {
+                        this.searchButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
+                        this.switchScene();
+                    }
+                    break;
+            }
 
+        }
     }
 
     @Override
     public void draw(Canvas canvas) {
-
-    }
-
-    @Override
-    public void terminate() {
-
+        canvas.drawBitmap(this.searchButton, null, this.searchBox, this.paint);
+        //canvas.drawBitmap(this.statsButton, null, this.statsBox, this.paint);
+        canvas.drawText("SEARCH",  ( (Constants.SCREEN_WIDTH / 3)/2), (Constants.SCREEN_HEIGHT - 100), this.textPaint);
+        //canvas.drawText("RUN", ((Constants.SCREEN_WIDTH / 2) + ((Constants.SCREEN_WIDTH / 2) / 2)), (Constants.SCREEN_HEIGHT - 100), this.textPaint);
     }
 
     @Override
     public void switchScene() {
-
+        sceneManager.setActiveScene(new BattleScene(sceneManager));
     }
 }

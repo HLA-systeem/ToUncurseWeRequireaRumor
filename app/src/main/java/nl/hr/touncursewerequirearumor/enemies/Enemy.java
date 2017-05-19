@@ -54,6 +54,15 @@ public abstract class Enemy{ //An abstract class should not have fields
         return this.name + " took " + damage + " damage";
         }
 
+    public Boolean defeated(){
+        if(this.hp <= 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     public Boolean registerHit(int hitRate){
         Random random = new Random();
         int chance = hitRate;
@@ -78,5 +87,9 @@ public abstract class Enemy{ //An abstract class should not have fields
 
     public int getSpeed(){
         return this.speed;
+    }
+
+    public String getName(){
+        return this.name;
     }
 }

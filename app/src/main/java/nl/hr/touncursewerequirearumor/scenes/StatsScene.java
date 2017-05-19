@@ -24,11 +24,6 @@ public class StatsScene implements Scene {
     }
 
     @Override
-    public void terminate() {
-
-    }
-
-    @Override
     public void switchScene() {
 
     }

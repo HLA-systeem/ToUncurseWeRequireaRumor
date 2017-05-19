@@ -69,7 +69,7 @@ public class IntroScene implements Scene {
         }
         if(e != null){
             if(e.getAction() == MotionEvent.ACTION_UP){ //make the current thread sleep before this
-                this.terminate();
+                this.switchScene();
             }
         }
     }
@@ -87,12 +87,7 @@ public class IntroScene implements Scene {
     }
 
     @Override
-    public void terminate(){
-        this.switchScene();
-    }
-
-    @Override
     public void switchScene() {
-        sceneManager.setActiveScene(new BattleScene(sceneManager));
+        sceneManager.setActiveScene(new SearchScene(sceneManager));
     }
 }

@@ -76,4 +76,13 @@ public class Player {
         this.hp -= damage;
         return "You took " + damage +" damage";
     }
+
+    public Boolean gameover(){
+        if(this.hp <= 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

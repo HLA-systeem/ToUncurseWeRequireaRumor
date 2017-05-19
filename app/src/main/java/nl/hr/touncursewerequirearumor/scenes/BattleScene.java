@@ -1,6 +1,6 @@
 package nl.hr.touncursewerequirearumor.scenes;
 
-import android.app.backup.BackupAgent;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -41,6 +41,7 @@ public class BattleScene implements Scene {
     private Bitmap attButton;
     private Bitmap runButton;
     private BitmapFactory bf;
+    private Scene switchTo;
 
 
     public static synchronized void addBattleInfo(String battleInfo){
@@ -126,14 +127,19 @@ public class BattleScene implements Scene {
                     if(DrawVNstyle.running == false){
                         this.clearBattleInfo();
                         if(this.battleInfo == ""){ //omdat text nog wil verschijnen terwijl de runnable klaar is.
-                            Log.e(Constants.MY_TAG, "Battle state is: " +this.battleManager.getBattleState());
-                            this.battleManager.getBattleState().execute();
+                            if(this.battleManager.getResult() != "None"){
+                                this.decideNextScene();
+                            }
+                            else{
+                                this.battleManager.getBattleState().execute();
+                            }
                         }
                     }
                 }
             }
         }
     }
+
 
     @Override
     public void draw(Canvas canvas) {
@@ -151,13 +157,23 @@ public class BattleScene implements Scene {
     }
 
     @Override
-    public void terminate() {
-
+    public void switchScene() {
+        sceneManager.setActiveScene(this.switchTo);
     }
 
-    @Override
-    public void switchScene() {
-        //sceneManager.setActiveScene(null);
+    private void decideNextScene(){
+        switch(this.battleManager.getResult()){
+            case "Winner":
+                this.switchTo = new SearchScene(sceneManager); //dit gaat naar de status screen later
+                break;
+            case "Defeated":
+                this.switchTo = new SearchScene(sceneManager);//dit gaat naar de gameover screen later
+                break;
+            case "Escaped":
+                this.switchTo = new SearchScene(sceneManager);
+                break;
+        }
+        this.switchScene();
     }
 
 }
