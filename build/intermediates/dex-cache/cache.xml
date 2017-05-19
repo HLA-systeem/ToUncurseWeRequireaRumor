@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Van Katen\Desktop\applications\GitHub\ToUncurseWeRequireaRumor\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="C:\Users\Van Katen\Desktop\applications\GitHub\ToUncurseWeRequireaRumor\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_94979604141be4cbac11ee21e915fbaa9565a8b7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Van Katen\Desktop\applications\GitHub\ToUncurseWeRequireaRumor\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d37e37a7fc190ad4430ce68a48e4050c4ffb9ddc">
+        <dex dex="C:\Users\Van Katen\Desktop\applications\GitHub\ToUncurseWeRequireaRumor\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_08f850a0ae7e58c4d31c27f8962ebdb9d425fe0e\classes.dex" />
+    </item>
+
+</items>

@@ -16,7 +16,6 @@ import nl.hr.touncursewerequirearumor.scenes.managers.SceneManager;
 
 public class IntroScene implements Scene {
     private SceneManager sceneManager;
-    public final String SCENE_NAME = "Intro";
 
     private Rect scrollBox;
     private Bitmap scroll;
@@ -88,12 +87,12 @@ public class IntroScene implements Scene {
     }
 
     @Override
-    public void terminate() {
-
+    public void terminate(){
+        this.switchScene();
     }
 
     @Override
     public void switchScene() {
-
+        sceneManager.setActiveScene(new BattleScene(sceneManager));
     }
 }

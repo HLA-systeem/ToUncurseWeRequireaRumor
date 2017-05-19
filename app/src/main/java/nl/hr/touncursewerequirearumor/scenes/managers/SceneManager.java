@@ -10,26 +10,21 @@ import nl.hr.touncursewerequirearumor.scenes.IntroScene;
 import nl.hr.touncursewerequirearumor.scenes.Scene;
 
 public class SceneManager {
-    private Map <String,Scene> scenes = new HashMap<String,Scene>();
-    public String activeScene = "Intro";
+    private Scene activeScene;
 
     public SceneManager(){
-        IntroScene introScene = new IntroScene(this);
-        scenes.put(introScene.SCENE_NAME, introScene);
-
-        BattleScene battleScene = new BattleScene(this);
-        scenes.put(battleScene.SCENE_NAME, battleScene);
+        this.activeScene = new IntroScene(this);
     }
 
-    public void setActiveScene(String activeScene){
+    public void setActiveScene(Scene activeScene){
         this.activeScene = activeScene;
     }
 
     public void update(MotionEvent e) {
-        scenes.get(activeScene).update(e);
+        this.activeScene.update(e);
     }
 
     public void draw(Canvas canvas){
-        scenes.get(activeScene).draw(canvas);
+        this.activeScene.draw(canvas);
     }
 }

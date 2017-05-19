@@ -1,53 +1,20 @@
 package nl.hr.touncursewerequirearumor.scenes.managers;
 
-import nl.hr.touncursewerequirearumor.scenes.BattleScene;
-import nl.hr.touncursewerequirearumor.Player;
-import nl.hr.touncursewerequirearumor.enemies.Enemy;
+import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.BattleState;
+import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.Encounter;
 
 public class BattleManager {
-    private String battleState = "Init";
+    private BattleState battleState;
 
-
-    public String getBattleState(){
+    public BattleState getBattleState(){
         return this.battleState;
     }
 
-    public void encounter(Enemy enemy){
-        BattleScene.clearBattleInfo();
-        this.addText(enemy.showsUpText());
+    public void setBattleState(BattleState battleState){
+        this.battleState = battleState;
     }
 
-    public void playerAttack(Player player, Enemy enemy){
-        BattleScene.clearBattleInfo();
-        int damage = player.dealDamage();
-        if(enemy.registerHit(player.getHit())) {
-            addText(enemy.onDamage(damage));
-        }
-        else{
-            addText("You've missed!");
-        }
-        this.battleState = "EnemyAtt";
-    }
-
-    public void enemyAttack(Player player, Enemy enemy){
-        BattleScene.clearBattleInfo();
-        addText(player.onDamage(enemy.getAtt()));
-        this.battleState = "Init";
-    }
-
-    public void run(Player player, Enemy enemy){
-        BattleScene.clearBattleInfo();
-        if(player.run(enemy.getSpeed())){
-            addText("You've managed to get away.");
-            this.battleState = "Escaping";
-        }
-        else{
-            addText("You've can't escape!");
-            this.battleState = "EnemyAtt";
-        }
-    }
-
-    private void addText(String text){
+    public void addText(String text){
         Runnable delayText = new DrawVNstyle(text);
         Thread t = new Thread(delayText);
         t.start();

@@ -1,5 +1,6 @@
 package nl.hr.touncursewerequirearumor.scenes;
 
+import android.app.backup.BackupAgent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -17,11 +18,14 @@ import nl.hr.touncursewerequirearumor.scenes.managers.SceneManager;
 import nl.hr.touncursewerequirearumor.enemies.Enemy;
 import nl.hr.touncursewerequirearumor.scenes.managers.BattleManager;
 import nl.hr.touncursewerequirearumor.scenes.managers.DrawVNstyle;
+import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.Encounter;
+import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.EnemyAttack;
+import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.PlayerAttack;
+import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.Run;
 
 
 public class BattleScene implements Scene {
     private SceneManager sceneManager;
-    public final String SCENE_NAME = "Battle";
 
     private BattleManager battleManager;
     private EnemySelector enemySelector;
@@ -65,7 +69,7 @@ public class BattleScene implements Scene {
         this.enemyBox = new Rect();
         this.enemyBox.set(((Constants.SCREEN_WIDTH/2) - 320),((Constants.SCREEN_HEIGHT/2) - 200),((Constants.SCREEN_WIDTH/2) + 320),((Constants.SCREEN_HEIGHT/2) + 200));
 
-        this.battleManager.encounter(this.enemy);
+        this.battleManager.setBattleState(new Encounter(this.battleManager,this.player,this.enemy));
 
         this.textHeight = (int)textPaint.getTextSize();
         this.attBox = new Rect();
@@ -92,7 +96,7 @@ public class BattleScene implements Scene {
     @Override
     public void update(MotionEvent e){
         if(e != null && DrawVNstyle.running == false) {
-            if(this.battleManager.getBattleState().equals("Init")){
+            if(this.battleManager.getBattleState().getClass().equals(Encounter.class)){
                 switch (e.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         if (((int) e.getX() > attBox.left && (int) e.getX() < attBox.right) && ((int) e.getY() > attBox.top && (int) e.getY() < attBox.bottom)) {
@@ -105,12 +109,12 @@ public class BattleScene implements Scene {
                     case MotionEvent.ACTION_UP:
                         if (((int) e.getX() > attBox.left && (int) e.getX() < attBox.right) && ((int) e.getY() > attBox.top && (int) e.getY() < attBox.bottom)) {
                             this.attButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
-                            this.battleManager.playerAttack(this.player,this.enemy);
+                            this.battleManager.setBattleState(new PlayerAttack(this.battleManager,this.player,this.enemy));
 
                         }
                         if (((int) e.getX() > runBox.left && (int) e.getX() < runBox.right) && ((int) e.getY() > runBox.top && (int) e.getY() < runBox.bottom)) {
                             this.runButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
-                            this.battleManager.run(this.player,this.enemy);
+                            this.battleManager.setBattleState(new Run(this.battleManager,this.player,this.enemy));
 
                         }
                         break;
@@ -121,12 +125,7 @@ public class BattleScene implements Scene {
                     if(DrawVNstyle.running == false){
                         this.clearBattleInfo();
                         if(this.battleInfo == ""){ //omdat text nog wil verschijnen terwijl de runnable klaar is.
-                            switch(this.battleManager.getBattleState()){
-                                case "EnemyAtt":
-                                    this.battleManager.enemyAttack(this.player,this.enemy);
-                                    break;
-                                case "Escaping":
-                            }
+                            this.battleManager.getBattleState().execute();
                         }
                     }
                 }
@@ -136,7 +135,7 @@ public class BattleScene implements Scene {
 
     @Override
     public void draw(Canvas canvas) {
-        if(this.battleManager.getBattleState() == "Init"){
+        if(this.battleManager.getBattleState().getClass().equals(Encounter.class)){
             canvas.drawBitmap(this.attButton, null, this.attBox, this.paint);
             canvas.drawBitmap(this.runButton, null, this.runBox, this.paint);
             canvas.drawText("ATTACK", ((Constants.SCREEN_WIDTH / 2) / 2), (Constants.SCREEN_HEIGHT - 100), this.textPaint);
@@ -144,7 +143,9 @@ public class BattleScene implements Scene {
         }
 
         canvas.drawBitmap(enemy.displayCharacter(),null,enemyBox,this.paint);
-        canvas.drawText(battleInfo, (Constants.SCREEN_WIDTH / 2), ((Constants.SCREEN_HEIGHT / 2) + 250), this.textPaint);
+        if(battleInfo != null) {
+            canvas.drawText(battleInfo, (Constants.SCREEN_WIDTH / 2), ((Constants.SCREEN_HEIGHT / 2) + 250), this.textPaint);
+        }
     }
 
     @Override
