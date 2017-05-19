@@ -11,6 +11,8 @@ public abstract class BattleState {
 
     BattleState(BattleManager manager,Player player, Enemy enemy) {
         this.manager = manager;
+        this.player = player;
+        this.enemy = enemy;
     }
 
     public abstract void execute();

@@ -9,7 +9,7 @@ public class InterDimensionalLolicon extends Enemy {
     private int hit = 100;
 
     public InterDimensionalLolicon() {
-        super("interdimensional Lolicon", "interdimensionallolicon", 80, 50, 100, 100);
+        super("Interdimensional Lolicon", "interdimensionallolicon", 80, 50, 100, 100);
     }
 
 

@@ -14,8 +14,8 @@ public class EnemyAttack extends BattleState {
     @Override
     public void execute() {
         BattleScene.clearBattleInfo();
-        manager.addText(player.onDamage(enemy.getAtt()));
-        manager.setBattleState(null);
+        this.manager.addText(this.player.onDamage(this.enemy.getAtt()));
+        this.manager.setBattleState(new Setup(this.manager,this.player,this.enemy,false));
     }
 
 

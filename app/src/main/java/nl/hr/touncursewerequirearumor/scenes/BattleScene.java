@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.MotionEvent;
 
 import nl.hr.touncursewerequirearumor.Constants;
@@ -18,10 +19,9 @@ import nl.hr.touncursewerequirearumor.scenes.managers.SceneManager;
 import nl.hr.touncursewerequirearumor.enemies.Enemy;
 import nl.hr.touncursewerequirearumor.scenes.managers.BattleManager;
 import nl.hr.touncursewerequirearumor.scenes.managers.DrawVNstyle;
-import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.Encounter;
-import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.EnemyAttack;
 import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.PlayerAttack;
 import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.Run;
+import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.Setup;
 
 
 public class BattleScene implements Scene {
@@ -41,6 +41,7 @@ public class BattleScene implements Scene {
     private Bitmap attButton;
     private Bitmap runButton;
     private BitmapFactory bf;
+
 
     public static synchronized void addBattleInfo(String battleInfo){
         BattleScene.battleInfo += battleInfo;
@@ -69,7 +70,7 @@ public class BattleScene implements Scene {
         this.enemyBox = new Rect();
         this.enemyBox.set(((Constants.SCREEN_WIDTH/2) - 320),((Constants.SCREEN_HEIGHT/2) - 200),((Constants.SCREEN_WIDTH/2) + 320),((Constants.SCREEN_HEIGHT/2) + 200));
 
-        this.battleManager.setBattleState(new Encounter(this.battleManager,this.player,this.enemy));
+        this.battleManager.setBattleState(new Setup(this.battleManager,this.player,this.enemy,true));
 
         this.textHeight = (int)textPaint.getTextSize();
         this.attBox = new Rect();
@@ -96,7 +97,7 @@ public class BattleScene implements Scene {
     @Override
     public void update(MotionEvent e){
         if(e != null && DrawVNstyle.running == false) {
-            if(this.battleManager.getBattleState().getClass().equals(Encounter.class)){
+            if(this.battleManager.getBattleState().getClass().equals(Setup.class)){
                 switch (e.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         if (((int) e.getX() > attBox.left && (int) e.getX() < attBox.right) && ((int) e.getY() > attBox.top && (int) e.getY() < attBox.bottom)) {
@@ -110,7 +111,6 @@ public class BattleScene implements Scene {
                         if (((int) e.getX() > attBox.left && (int) e.getX() < attBox.right) && ((int) e.getY() > attBox.top && (int) e.getY() < attBox.bottom)) {
                             this.attButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
                             this.battleManager.setBattleState(new PlayerAttack(this.battleManager,this.player,this.enemy));
-
                         }
                         if (((int) e.getX() > runBox.left && (int) e.getX() < runBox.right) && ((int) e.getY() > runBox.top && (int) e.getY() < runBox.bottom)) {
                             this.runButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
@@ -125,6 +125,7 @@ public class BattleScene implements Scene {
                     if(DrawVNstyle.running == false){
                         this.clearBattleInfo();
                         if(this.battleInfo == ""){ //omdat text nog wil verschijnen terwijl de runnable klaar is.
+                            Log.e(Constants.MY_TAG, "Battle state is: " +this.battleManager.getBattleState());
                             this.battleManager.getBattleState().execute();
                         }
                     }
@@ -135,7 +136,7 @@ public class BattleScene implements Scene {
 
     @Override
     public void draw(Canvas canvas) {
-        if(this.battleManager.getBattleState().getClass().equals(Encounter.class)){
+        if(this.battleManager.getBattleState().getClass().equals(Setup.class)){
             canvas.drawBitmap(this.attButton, null, this.attBox, this.paint);
             canvas.drawBitmap(this.runButton, null, this.runBox, this.paint);
             canvas.drawText("ATTACK", ((Constants.SCREEN_WIDTH / 2) / 2), (Constants.SCREEN_HEIGHT - 100), this.textPaint);

@@ -7,7 +7,7 @@ import nl.hr.touncursewerequirearumor.Constants;
 import nl.hr.touncursewerequirearumor.R;
 
 public class WannabeBandit extends Enemy {
-    private String name = "wannabe-bandit";
+    private String name = "Wannabe-Bandit";
     private String nameRes = "wannabebandit";
     private int hp = 40;
     private int att = 20;
@@ -15,7 +15,7 @@ public class WannabeBandit extends Enemy {
     private int hit = 30;
 
     public WannabeBandit() {
-        super("wannabe-bandit", "wannabebandit", 40, 20, 40, 30);
+        super("Wannabe-Bandit", "wannabebandit", 40, 20, 40, 30);
     }
 
     @Override

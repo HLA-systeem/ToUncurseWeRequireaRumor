@@ -5,25 +5,27 @@ import nl.hr.touncursewerequirearumor.Player;
 import nl.hr.touncursewerequirearumor.enemies.Enemy;
 import nl.hr.touncursewerequirearumor.scenes.BattleScene;
 import nl.hr.touncursewerequirearumor.scenes.managers.BattleManager;
-import nl.hr.touncursewerequirearumor.scenes.managers.DrawVNstyle;
+
 
 public class PlayerAttack extends BattleState{
 
 
     public PlayerAttack(BattleManager manager, Player player, Enemy enemy) {
         super(manager, player, enemy);
+        this.execute();
     }
 
     @Override
     public void execute() {
         BattleScene.clearBattleInfo();
         int damage = player.dealDamage();
-        if(enemy.registerHit(player.getHit())) {
-            manager.addText(enemy.onDamage(damage));
+        if(this.enemy.registerHit(player.getHit())) {
+            this.manager.addText(this.enemy.onDamage(damage));
         }
         else{
             manager.addText("You've missed!");
         }
-        manager.setBattleState(new EnemyAttack(manager, player, enemy));
+
+        this.manager.setBattleState(new EnemyAttack(this.manager, this.player, this.enemy)); //doet het de eerste keer niet.
     }
 }

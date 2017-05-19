@@ -1,7 +1,6 @@
 package nl.hr.touncursewerequirearumor.scenes.managers;
 
 import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.BattleState;
-import nl.hr.touncursewerequirearumor.scenes.managers.battle_states.Encounter;
 
 public class BattleManager {
     private BattleState battleState;
