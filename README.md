@@ -1,8 +1,10 @@
 ## Synopsis
-This game purely is being made in Android Studio, no libGDX or other gaming development application is being used. 
+This game is purely  being made in Android Studio, no libGDX or other gaming development application is being used. 
 You will need an Android emulator in order to run the game as it is.
 The part of this repository that concerns the game can be found in the following folder:
 https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/tree/master/app/src/main/java/nl/hr/touncursewerequirearumor
+
+## How to Run
 
 ## Design-Patterns Used
 
