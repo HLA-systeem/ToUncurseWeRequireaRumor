@@ -32,3 +32,5 @@ https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main
 ### Encapsulation, Composition, Inheritance
 Used basically everywhere.
 
+## UML
+https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/UML_To_Uncurse_We_Require_a_Rumor.pdf
