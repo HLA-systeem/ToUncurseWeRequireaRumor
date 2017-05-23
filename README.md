@@ -46,6 +46,6 @@ https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main
 Used basically everywhere.
 
 ## UML
-https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/UML_To_Uncurse_We_Require_a_Rumor.pdf *
+https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/UML_To_Uncurse_We_Require_a_Rumor.pdf
 
-\**I didn't now how to make non-filled-arrows with dotted lines to represent implemantation in my UML editor, so I just show it with a normal extention arrow.*
+
