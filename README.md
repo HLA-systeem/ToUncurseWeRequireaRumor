@@ -4,6 +4,8 @@ You will need an Android emulator in order to run the game as it is.
 The part of this repository that concerns the game can be found in the following folder:
 https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/tree/master/app/src/main/java/nl/hr/touncursewerequirearumor
 
+All images currently in the game are 100% made by me.
+
 ## Reccomended way of running the game
 1. Use a real Android phone.
 2. Open up the Settings on your Android Phone.
