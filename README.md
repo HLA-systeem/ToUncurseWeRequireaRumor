@@ -12,11 +12,12 @@ All images currently in the game are 100% made by me.
 3. Scroll down until you see the 'About phone' option (This option should show your Android OS version), and press it.
 4. Scroll down until you see the your phones Build Number.
 5. Press the Build number 7 times until you enter Developer Mode (Android will tell you when your about to).
-6. Download Android Studio on your computer.
-7. Open this project in Android Studio.
-8. Connect your computer to your Android by usb cable.
-9. Press Shift+F10 or click the green arrow.
-10. The title screen of the game wil open, press New Game
+6. Developer options should hava appeard under the main settings. Press it, scroll down until you see USB debugging and enable it.
+7. Download Android Studio on your computer.
+8. Open this project in Android Studio.
+9. Connect your computer to your Android by usb cable.
+10. Press Shift+F10 or click the green arrow.
+11. The title screen of the game wil open, press New Game
 
 ## Design-Patterns Used
 
