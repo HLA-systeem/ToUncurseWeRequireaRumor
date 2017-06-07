@@ -7,6 +7,7 @@ public class InterDimensionalLolicon extends Enemy {
     private int att = 50;
     private int speed = 100;
     private int hit = 100;
+    protected static boolean defeatedBefore;
 
     public InterDimensionalLolicon() {
         super("Interdimensional Lolicon", "interdimensionallolicon", 80, 50, 100, 100);

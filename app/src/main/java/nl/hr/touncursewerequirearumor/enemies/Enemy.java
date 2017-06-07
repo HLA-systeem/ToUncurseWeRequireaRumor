@@ -15,6 +15,7 @@ public abstract class Enemy{ //An abstract class should not have fields
     protected int att;
     protected int speed;
     protected int hit;
+
     protected static String nerf = "None";
 
     public Enemy(String name,String nameRes,int hp,int att,int speed,int hit){
@@ -75,6 +76,13 @@ public abstract class Enemy{ //An abstract class should not have fields
             return false;
         }
 
+    }
+
+    public void curse(){
+        this.hp = this.hp/2;
+        this.att = this.att/2;
+        this.speed = this.speed/2;
+        this.hit = this.hit/2;
     }
 
     public static void setNerf(String nerf){

@@ -101,20 +101,20 @@ public class BattleScene implements Scene {
             if(this.battleManager.getBattleState().getClass().equals(Setup.class)){
                 switch (e.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        if (((int) e.getX() > attBox.left && (int) e.getX() < attBox.right) && ((int) e.getY() > attBox.top && (int) e.getY() < attBox.bottom)) {
+                        if (Constants.rectPressed(e,this.attBox)) {
                             this.attButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonpress);
                         }
-                        if (((int) e.getX() > runBox.left && (int) e.getX() < runBox.right) && ((int) e.getY() > runBox.top && (int) e.getY() < runBox.bottom)) {
+                        if (Constants.rectPressed(e,this.runBox)) {
                             this.runButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonpress);
                         }
                         break;
                     case MotionEvent.ACTION_UP:
-                        if (((int) e.getX() > attBox.left && (int) e.getX() < attBox.right) && ((int) e.getY() > attBox.top && (int) e.getY() < attBox.bottom)) {
+                        if (Constants.rectPressed(e,this.attBox)) {
                             this.attButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
                             this.battleManager.setBattleState(new PlayerAttack(this.battleManager,this.player,this.enemy));
                             this.battleManager.getBattleState().execute();
                         }
-                        if (((int) e.getX() > runBox.left && (int) e.getX() < runBox.right) && ((int) e.getY() > runBox.top && (int) e.getY() < runBox.bottom)) {
+                        if (Constants.rectPressed(e,this.runBox)) {
                             this.runButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
                             this.battleManager.setBattleState(new Run(this.battleManager,this.player,this.enemy));
 

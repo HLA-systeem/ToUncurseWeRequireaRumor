@@ -10,7 +10,7 @@ import nl.hr.touncursewerequirearumor.enemies.PlastiCat;
 import nl.hr.touncursewerequirearumor.enemies.WannabeBandit;
 
 public class EnemySelector{
-    Enemy selectedEnemy;
+    private Enemy selectedEnemy;
 
     public Enemy selectEnemy(){
         Random random = new Random();

@@ -19,4 +19,7 @@ public class Atroe extends Enemy {
         return "It's the Atroe !\n The creature you've been searching for !";
     }
 
+    @Override
+    public void curse(){}
+
 }

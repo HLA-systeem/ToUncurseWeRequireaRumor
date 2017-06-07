@@ -13,29 +13,34 @@ import nl.hr.touncursewerequirearumor.Constants;
 import nl.hr.touncursewerequirearumor.R;
 import nl.hr.touncursewerequirearumor.scenes.managers.DrawVNstyle;
 import nl.hr.touncursewerequirearumor.scenes.managers.SceneManager;
+import nl.hr.touncursewerequirearumor.scenes.managers.SearchResultSeletor;
 
 
 public class SearchScene implements Scene {
-    private static String searchInfo;
     private SceneManager sceneManager;
+    private SearchResultSeletor selector;
+    private Scene searchResult;
 
     private Paint paint;
     private Paint textPaint;
     private int textHeight;
 
+    private Rect backgroundBox;
     private Rect searchBox;
     private Rect statsBox;
     private Rect saveBox;
 
+    private Bitmap background;
     private Bitmap searchButton;
     private Bitmap statsButton;
     private Bitmap saveButton;
     private BitmapFactory bf;
 
 
-
     public SearchScene(SceneManager sceneManager){
         this.sceneManager = sceneManager;
+        this.selector = new SearchResultSeletor(this.sceneManager);
+        this.searchResult = selector.selectSearchResult();
 
         this.paint = new Paint();
 
@@ -47,6 +52,16 @@ public class SearchScene implements Scene {
         this.textPaint.setTypeface(Typeface.DEFAULT_BOLD);
 
         this.textHeight = (int)textPaint.getTextSize();
+
+
+        this.backgroundBox = new Rect();
+        this.backgroundBox.set(
+                0,
+                0,
+                Constants.SCREEN_WIDTH,
+                Constants.SCREEN_HEIGHT);
+
+
         this.searchBox = new Rect();
         this.searchBox.set(
                 ( (Constants.SCREEN_WIDTH / 3)/2)  - (Constants.getTextWidth("SEARCH",this.textPaint)/2) -50,
@@ -57,9 +72,9 @@ public class SearchScene implements Scene {
 
         this.statsBox = new Rect();
         this.statsBox.set(
-                ( (Constants.SCREEN_WIDTH /2) + ( (Constants.SCREEN_WIDTH / 2) /2) ) - (Constants.getTextWidth("RUN",this.textPaint)/2) -50,
+                (Constants.SCREEN_WIDTH /2) - (Constants.getTextWidth("STATS",this.textPaint)/2) -50,
                 ( (Constants.SCREEN_HEIGHT - 100) - this.textHeight) - 50,
-                ( (Constants.SCREEN_WIDTH /2) + ( (Constants.SCREEN_WIDTH / 2) /2) ) + (Constants.getTextWidth("ATTACK",this.textPaint)/2) +50,
+                (Constants.SCREEN_WIDTH /2) + (Constants.getTextWidth("STATS",this.textPaint)/2) +50,
                 (Constants.SCREEN_HEIGHT - 100) +50);
 
         this.saveBox = new Rect();
@@ -71,13 +86,10 @@ public class SearchScene implements Scene {
 
 
         this.bf = new BitmapFactory();
+        this.background = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.forest);
         this.searchButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
         this.statsButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
         this.saveButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
-    }
-
-    public static void addSeachtInfo(String searchInfo){
-        SearchScene.searchInfo += searchInfo;
     }
 
     @Override
@@ -85,12 +97,12 @@ public class SearchScene implements Scene {
         if (e != null && DrawVNstyle.running == false) {
             switch (e.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    if (((int) e.getX() > searchBox.left && (int) e.getX() < searchBox.right) && ((int) e.getY() > searchBox.top && (int) e.getY() < searchBox.bottom)) {
+                    if (Constants.rectPressed(e,this.searchBox)) {
                         this.searchButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonpress);
                     }
                     break;
                 case MotionEvent.ACTION_UP:
-                    if (((int) e.getX() > searchBox.left && (int) e.getX() < searchBox.right) && ((int) e.getY() > searchBox.top && (int) e.getY() < searchBox.bottom)) {
+                    if (Constants.rectPressed(e,this.searchBox)) {
                         this.searchButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
                         this.switchScene();
                     }
@@ -102,14 +114,20 @@ public class SearchScene implements Scene {
 
     @Override
     public void draw(Canvas canvas) {
+        canvas.drawBitmap(this.background, null, this.backgroundBox, this.paint);
         canvas.drawBitmap(this.searchButton, null, this.searchBox, this.paint);
-        //canvas.drawBitmap(this.statsButton, null, this.statsBox, this.paint);
+        canvas.drawBitmap(this.statsButton, null, this.statsBox, this.paint);
         canvas.drawText("SEARCH",  ( (Constants.SCREEN_WIDTH / 3)/2), (Constants.SCREEN_HEIGHT - 100), this.textPaint);
-        //canvas.drawText("RUN", ((Constants.SCREEN_WIDTH / 2) + ((Constants.SCREEN_WIDTH / 2) / 2)), (Constants.SCREEN_HEIGHT - 100), this.textPaint);
     }
 
     @Override
     public void switchScene() {
-        sceneManager.setActiveScene(new BattleScene(sceneManager));
+        sceneManager.setActiveScene(this.searchResult);
+    }
+
+    public void displayForestBackground(){
+        BitmapFactory bf = new BitmapFactory();
+        Bitmap img = bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), Constants.CURRENT_CONTEXT.getResources().getIdentifier("forest","drawable", "nl.hr.touncursewerequirearumor"));
+        this.background = img;
     }
 }

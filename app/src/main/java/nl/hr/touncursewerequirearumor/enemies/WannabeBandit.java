@@ -13,6 +13,7 @@ public class WannabeBandit extends Enemy {
     private int att = 20;
     private int speed = 40;
     private int hit = 30;
+    protected static boolean defeatedBefore;
 
     public WannabeBandit() {
         super("Wannabe-Bandit", "wannabebandit", 40, 20, 40, 30);
