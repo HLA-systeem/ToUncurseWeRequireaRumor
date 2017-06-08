@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 
 import nl.hr.touncursewerequirearumor.Constants;
+import nl.hr.touncursewerequirearumor.enemies.PlastiBat;
 import nl.hr.touncursewerequirearumor.scenes.managers.EnemySelector;
 import nl.hr.touncursewerequirearumor.Player;
 import nl.hr.touncursewerequirearumor.R;
@@ -52,7 +53,7 @@ public class BattleScene implements Scene {
         BattleScene.battleInfo = "";
     }
 
-    public BattleScene(SceneManager sceneManager){
+    public BattleScene(SceneManager sceneManager, Boolean plastibat){
         this.sceneManager = sceneManager;
         this.battleManager = new BattleManager();
         this.player = Player.getInstance();
@@ -66,8 +67,13 @@ public class BattleScene implements Scene {
         this.textPaint.setTextSize(26);
         this.textPaint.setTypeface(Typeface.DEFAULT_BOLD);
 
-        this.enemySelector = new EnemySelector();
-        this.enemy = enemySelector.selectEnemy();
+        if(plastibat != false) {
+            this.enemySelector = new EnemySelector();
+            this.enemy = enemySelector.selectEnemy();
+        }
+        else{
+            this.enemy = new PlastiBat();
+        }
         this.enemyBox = new Rect();
         this.enemyBox.set(((Constants.SCREEN_WIDTH/2) - 320),((Constants.SCREEN_HEIGHT/2) - 200),((Constants.SCREEN_WIDTH/2) + 320),((Constants.SCREEN_HEIGHT/2) + 200));
 
@@ -164,13 +170,16 @@ public class BattleScene implements Scene {
     private void decideNextScene(){
         switch(this.battleManager.getResult()){
             case "Winner":
-                this.switchTo = new SearchScene(this.sceneManager); //dit gaat naar de status screen later
+                this.switchTo = new StatsScene(this.sceneManager,true); //dit gaat naar de status screen later
                 break;
             case "Defeated":
-                this.switchTo = new SearchScene(this.sceneManager);//dit gaat naar de gameover screen later
+                this.switchTo = new GameOverScene();
                 break;
             case "Escaped":
                 this.switchTo = new SearchScene(this.sceneManager);
+                break;
+            case "Plastibat":
+                this.switchTo = new BattleScene(this.sceneManager,true);
                 break;
         }
         this.switchScene();
