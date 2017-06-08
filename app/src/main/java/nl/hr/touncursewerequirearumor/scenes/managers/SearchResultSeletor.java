@@ -18,7 +18,7 @@ public class SearchResultSeletor {
         Random random = new Random();
         int outcome = random.nextInt(100) + 1;
         if(outcome <= 50){
-            this.searchResult = new BattleScene(this.sceneManager);
+            this.searchResult = new BattleScene(this.sceneManager,false);
         }
 
         else{
