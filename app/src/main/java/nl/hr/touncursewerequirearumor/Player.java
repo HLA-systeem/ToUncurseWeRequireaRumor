@@ -17,25 +17,8 @@ public class Player {
     public static synchronized Player getInstance(){ //Hier is de reden waarom ik geen DCL gebruik http://stackoverflow.com/questions/31051353/is-dcl-still-broken
         if(Player.player == null){
             Player.player = new Player();
-
         }
         return Player.player;
-    }
-
-    public void setHp(int Speed){
-        this.speed += speed;
-    }
-
-    public void setAtt(int Speed){
-        this.speed += speed;
-    }
-
-    public void setSpeed(int Speed){
-        this.speed += speed;
-    }
-
-    public void setHit(int Speed){
-        this.speed += speed;
     }
 
     public void setBoost(String Boost){
@@ -83,6 +66,42 @@ public class Player {
         }
         else{
             return false;
+        }
+    }
+
+    public int getStat(Constants.STATS stat){
+        int statValue = 0;
+        switch(stat){
+            case HEALTH:
+                statValue = this.hp;
+                break;
+            case ATTACK:
+                statValue = this.att;
+                break;
+            case SPEED:
+                statValue = this.speed;
+                break;
+            case ACCURACY:
+                statValue = this.hit;
+                break;
+        }
+        return statValue;
+    }
+
+    public void increaseStat(Constants.STATS stat){
+        switch(stat){
+            case HEALTH:
+                this.hp += 20;
+                break;
+            case ATTACK:
+                this.att += 5;
+                break;
+            case SPEED:
+                this.speed += 2;
+                break;
+            case ACCURACY:
+                this.hit += 2;
+                break;
         }
     }
 }

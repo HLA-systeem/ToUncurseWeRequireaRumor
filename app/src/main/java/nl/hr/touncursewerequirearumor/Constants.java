@@ -17,11 +17,11 @@ public class Constants{
     public static int TEXT_SPEED;
     public static ArrayList<String> DEFEATED_BEFORE = new ArrayList<>();
 
-    enum Stats{
-        HP,
-        ATT,
-        SPD,
-        HIT
+    public enum STATS{
+        HEALTH,
+        ATTACK,
+        SPEED,
+        ACCURACY
     }
 
     public final static int getTextWidth(String text, Paint textStyle){
