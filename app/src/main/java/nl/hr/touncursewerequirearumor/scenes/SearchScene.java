@@ -108,7 +108,6 @@ public class SearchScene implements Scene {
                     }
                     break;
             }
-
         }
     }
 

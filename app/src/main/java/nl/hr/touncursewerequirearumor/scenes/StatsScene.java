@@ -34,7 +34,25 @@ public class StatsScene implements Scene {
 
     @Override
     public void update(MotionEvent e) {
+        if (e != null) {
+            if (e.getAction() == MotionEvent.ACTION_UP &&
+                    Constants.SCREEN_WIDTH - 5 > e.getX() &&
+                    e.getX() > Constants.SCREEN_WIDTH - 15 ){
 
+                if ((int) e.getY() > (45 + this.textHeight) && (int) e.getY() < (55+ this.textHeight)){ //Ik doe dit omdat een switch constants nodig heeft.
+                    Player.player.increaseStat(Constants.STATS.HEALTH);
+                }
+                if ((int) e.getY() > (95 + this.textHeight) && (int) e.getY() < (105+ this.textHeight)){
+                    Player.player.increaseStat(Constants.STATS.ATTACK);
+                }
+                if ((int) e.getY() > (145 + this.textHeight) && (int) e.getY() < (155+ this.textHeight)){
+                    Player.player.increaseStat(Constants.STATS.SPEED);
+                }
+                if ((int) e.getY() > (195 + this.textHeight) && (int) e.getY() < (205+ this.textHeight)){
+                    Player.player.increaseStat(Constants.STATS.ACCURACY);
+                }
+            }
+        }
     }
 
     @Override
@@ -42,13 +60,16 @@ public class StatsScene implements Scene {
         int height = 50;
         for(Constants.STATS status : Constants.STATS.values()){
             String statusString = status.toString();
-            canvas.drawText(statusString + ": " + Player.player,  ( (Constants.SCREEN_WIDTH / 3)/2), height + this.textHeight, this.textPaint);
+            canvas.drawText(statusString + ": " + Player.player.getStat(status),  ( (Constants.SCREEN_WIDTH / 3)/2), height + this.textHeight, this.textPaint);
+
+            if(this.levelUp == true){
+                canvas.drawText("+",  Constants.SCREEN_WIDTH - 10, height + this.textHeight, this.textPaint);
+            }
+
             height += 50;
         }
 
-        if(this.levelUp == true){
-            //canvas.drawText("+",  ( (Constants.SCREEN_WIDTH / 3)/2), height + this.textHeight, this.textPaint);
-        }
+        canvas.drawText("RETURN",  (Constants.SCREEN_WIDTH - 5) - Constants.getTextWidth("RETURN",this.textPaint), Constants.SCREEN_HEIGHT - 7, this.textPaint);
     }
 
     @Override

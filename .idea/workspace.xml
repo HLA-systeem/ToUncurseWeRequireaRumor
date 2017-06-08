@@ -11,8 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97839f3c-1c38-484b-8fdc-66eeee318337" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/Player.java" afterPath="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/SearchScene.java" afterPath="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/SearchScene.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/StatsScene.java" afterPath="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/StatsScene.java" />
     </list>
     <ignored path="ToUncurseWeRequireaRumor.iws" />
@@ -59,8 +58,8 @@
       <file leaf-file-name="StatsScene.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/StatsScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+            <state relative-caret-position="459">
+              <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -69,8 +68,8 @@
       <file leaf-file-name="SearchScene.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/SearchScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-884">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="53" selection-end-column="55" />
+            <state relative-caret-position="-85">
+              <caret line="98" column="45" selection-start-line="98" selection-start-column="45" selection-end-line="98" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -79,8 +78,8 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1666">
-              <caret line="98" column="23" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
+            <state relative-caret-position="-340">
+              <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -89,7 +88,7 @@
       <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="221">
               <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
               <folding />
             </state>
@@ -2521,7 +2520,6 @@
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/managers/ItemSelector.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/managers/SearchResultSeletor.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/SearchScene.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/items/Anathema.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/items/Crystal.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/items/GameItem.java" />
@@ -2533,8 +2531,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/enemies/Enemy.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/enemies/Atroe.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/Constants.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/StatsScene.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/Player.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/SearchScene.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/StatsScene.java" />
       </list>
     </option>
   </component>
@@ -3069,7 +3068,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -3150,11 +3149,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/plastibat.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://C:/Android/sdk/sources/android-25/android/graphics/Canvas.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -3467,9 +3461,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/GameEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/SearchScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="98" column="45" selection-start-line="98" selection-start-column="45" selection-end-line="98" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="221">
           <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding />
         </state>
@@ -3477,24 +3487,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="98" column="23" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/SearchScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-884">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="53" selection-end-column="55" />
+        <state relative-caret-position="-340">
+          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/StatsScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+        <state relative-caret-position="459">
+          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
           <folding />
         </state>
       </provider>
