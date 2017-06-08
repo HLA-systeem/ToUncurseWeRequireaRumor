@@ -5,31 +5,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context="nl.hr.touncursewerequirearumor.activities.MainActivity">
 
     <Button
         android:id="@+id/button_newgame"
         android:layout_width="100dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="85dp"
+        android:layout_marginLeft="268dp"
         android:onClick="onClick"
         android:text="@string/newgameText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
-
-    <Button
-        android:id="@+id/button_load"
-        android:layout_width="100dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:onClick="onClick"
-        android:text="@string/loadScreenText"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/button_newgame"
-        app:layout_constraintRight_toLeftOf="@+id/button_settings" />
 
     <Button
         android:id="@+id/button_settings"
@@ -39,15 +27,17 @@
         android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="13dp" />
 
     <TextView
         android:id="@+id/text_weatherStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="11dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="456dp"
         android:text="Weather: Clear"
+        android:textColor="#FFFFF0"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,6 +48,8 @@
         android:layout_marginLeft="27dp"
         android:layout_marginTop="8dp"
         android:text="Affect: None"
+        android:textColor="#FFFFF0"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_weatherStatus" />
 </android.support.constraint.ConstraintLayout>

@@ -20,6 +20,7 @@ public class SearchScene implements Scene {
     private SceneManager sceneManager;
     private SearchResultSeletor selector;
     private Scene searchResult;
+    private Scene switchTo;
 
     private Paint paint;
     private Paint textPaint;
@@ -77,13 +78,6 @@ public class SearchScene implements Scene {
                 (Constants.SCREEN_WIDTH /2) + (Constants.getTextWidth("STATS",this.textPaint)/2) +50,
                 (Constants.SCREEN_HEIGHT - 100) +50);
 
-        this.saveBox = new Rect();
-        this.saveBox.set(
-                ( (Constants.SCREEN_WIDTH /2) + ( (Constants.SCREEN_WIDTH / 2) /2) ) - (Constants.getTextWidth("RUN",this.textPaint)/2) -50,
-                ( (Constants.SCREEN_HEIGHT - 100) - this.textHeight) - 50,
-                ( (Constants.SCREEN_WIDTH /2) + ( (Constants.SCREEN_WIDTH / 2) /2) ) + (Constants.getTextWidth("ATTACK",this.textPaint)/2) +50,
-                (Constants.SCREEN_HEIGHT - 100) +50);
-
 
         this.bf = new BitmapFactory();
         this.background = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.forest);
@@ -100,10 +94,17 @@ public class SearchScene implements Scene {
                     if (Constants.rectPressed(e,this.searchBox)) {
                         this.searchButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonpress);
                     }
+                    if (Constants.rectPressed(e,this.statsBox)) {
+                        this.statsButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonpress);
+                    }
                     break;
                 case MotionEvent.ACTION_UP:
                     if (Constants.rectPressed(e,this.searchBox)) {
                         this.searchButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
+                        this.switchScene();
+                    }
+                    if (Constants.rectPressed(e,this.searchBox)) {
+                        this.statsButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
                         this.switchScene();
                     }
                     break;
