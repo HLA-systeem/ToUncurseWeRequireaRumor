@@ -52,6 +52,12 @@ public class StatsScene implements Scene {
                     Player.player.increaseStat(Constants.STATS.ACCURACY);
                 }
             }
+
+            if (e.getAction() == MotionEvent.ACTION_UP &&
+                    e.getX() > ( (Constants.SCREEN_WIDTH - 10) - Constants.getTextWidth("RETURN",this.textPaint) ) &&
+                    e.getY() > Constants.SCREEN_HEIGHT - 12){
+                    this.switchScene();
+            }
         }
     }
 
@@ -74,6 +80,6 @@ public class StatsScene implements Scene {
 
     @Override
     public void switchScene() {
-
+        sceneManager.setActiveScene(new SearchScene(this.sceneManager));
     }
 }
