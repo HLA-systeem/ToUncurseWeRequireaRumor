@@ -13,6 +13,11 @@ public class Anathema extends GameItem implements Observable {
         super("Anathema", "anathema");
     }
 
+    public String use(){
+
+        return "You've activated the curse stored in the Anathema.";
+    }
+
     @Override
     public void watch(Enemy enemy){
         this.victims.add(enemy);

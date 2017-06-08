@@ -7,7 +7,7 @@ public class PlastiBat extends Enemy {
     private int att = 15;
     private int speed = 90;
     private int hit = 80;
-    protected static boolean defeatedBefore;
+
 
     public PlastiBat(){
         super("Plastibat", "plastibat", 50, 15, 90, 80);

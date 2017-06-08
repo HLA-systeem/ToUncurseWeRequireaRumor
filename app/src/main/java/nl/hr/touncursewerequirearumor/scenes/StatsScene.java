@@ -8,9 +8,11 @@ import nl.hr.touncursewerequirearumor.scenes.managers.SceneManager;
 
 public class StatsScene implements Scene {
     private SceneManager sceneManager;
+    private Boolean levelUp;
 
-    StatsScene(SceneManager sceneManager){
+    StatsScene(SceneManager sceneManager, Boolean levelUp){
         this.sceneManager = sceneManager;
+        this.levelUp = levelUp;
     }
 
     @Override

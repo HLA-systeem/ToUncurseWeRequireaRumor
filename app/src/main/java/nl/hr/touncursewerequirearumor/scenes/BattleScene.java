@@ -151,26 +151,26 @@ public class BattleScene implements Scene {
         }
 
         canvas.drawBitmap(enemy.displayCharacter(),null,enemyBox,this.paint);
-        if(battleInfo != null) {
+        if(this.battleInfo != null) {
             canvas.drawText(battleInfo, (Constants.SCREEN_WIDTH / 2), ((Constants.SCREEN_HEIGHT / 2) + 250), this.textPaint);
         }
     }
 
     @Override
     public void switchScene() {
-        sceneManager.setActiveScene(this.switchTo);
+        this.sceneManager.setActiveScene(this.switchTo);
     }
 
     private void decideNextScene(){
         switch(this.battleManager.getResult()){
             case "Winner":
-                this.switchTo = new SearchScene(sceneManager); //dit gaat naar de status screen later
+                this.switchTo = new SearchScene(this.sceneManager); //dit gaat naar de status screen later
                 break;
             case "Defeated":
-                this.switchTo = new SearchScene(sceneManager);//dit gaat naar de gameover screen later
+                this.switchTo = new SearchScene(this.sceneManager);//dit gaat naar de gameover screen later
                 break;
             case "Escaped":
-                this.switchTo = new SearchScene(sceneManager);
+                this.switchTo = new SearchScene(this.sceneManager);
                 break;
         }
         this.switchScene();

@@ -5,6 +5,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.view.MotionEvent;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Constants{
     public final static String MY_TAG = "Dev's Tag";
     public final static int REQUEST_CODE = 7;
@@ -12,6 +15,7 @@ public class Constants{
     public static int SCREEN_HEIGHT;
     public static Context CURRENT_CONTEXT;
     public static int TEXT_SPEED;
+    public static ArrayList<String> DEFEATED_BEFORE = new ArrayList<>();
 
     enum Stats{
         HP,

@@ -20,6 +20,6 @@ public class Atroe extends Enemy {
     }
 
     @Override
-    public void curse(){}
+    public void cursable(){}
 
 }

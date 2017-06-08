@@ -4,7 +4,10 @@ package nl.hr.touncursewerequirearumor.scenes;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.view.MotionEvent;
 
 import nl.hr.touncursewerequirearumor.Constants;
@@ -16,20 +19,41 @@ import nl.hr.touncursewerequirearumor.scenes.managers.SceneManager;
 
 
 public class ItemScene implements Scene {
+    private SceneManager sceneManager;
+
     private GameItem item;
     private ItemSelector itemSelector;
-    private GameItem selectedItem;
+    private boolean itemUsed;
 
     private Rect backgroundBox;
+    private Rect itemBox;
 
     private Bitmap background;
     private BitmapFactory bf;
 
+    private Paint paint;
+    private Paint textPaint;
+
     private static String itemInfo;
 
     public ItemScene(SceneManager sceneManager){
+        this.sceneManager = sceneManager;
+
         this.itemSelector = new ItemSelector();
-        this.selectedItem = this.itemSelector.selectItem();
+        this.item = this.itemSelector.selectItem();
+        this.itemBox = new Rect();
+        this.itemBox.set(((Constants.SCREEN_WIDTH/2) - 320),((Constants.SCREEN_HEIGHT/2) - 200),((Constants.SCREEN_WIDTH/2) + 320),((Constants.SCREEN_HEIGHT/2) + 200));
+
+        this.itemUsed = false;
+
+        this.paint = new Paint();
+
+        this.textPaint = new Paint();
+        this.textPaint.setTextAlign(Paint.Align.CENTER);
+        this.textPaint.setAntiAlias(true);
+        this.textPaint.setColor(Color.WHITE);
+        this.textPaint.setTextSize(26);
+        this.textPaint.setTypeface(Typeface.DEFAULT_BOLD);
 
         this.backgroundBox = new Rect();
         this.backgroundBox.set(
@@ -44,12 +68,17 @@ public class ItemScene implements Scene {
 
     @Override
     public void update(MotionEvent e) {
-        if(e != null && DrawVNstyle.running == false) {
+        if(e != null && DrawVNstyle.running == false){
             if(e.getAction() == MotionEvent.ACTION_UP){
                 if(DrawVNstyle.running == false){
                     this.clearBattleInfo();
                     if(this.itemInfo == ""){ //omdat text nog wil verschijnen terwijl de runnable klaar is.
-
+                        if(itemUsed == false) {
+                            item.use();
+                        }
+                        else{
+                            this.switchScene();
+                        }
                     }
                 }
             }
@@ -58,12 +87,15 @@ public class ItemScene implements Scene {
 
     @Override
     public void draw(Canvas canvas) {
-
+        canvas.drawBitmap(item.displayItem(),null,itemBox,this.paint);
+        if(this.itemInfo != null) {
+            canvas.drawText(this.itemInfo, (Constants.SCREEN_WIDTH / 2), ((Constants.SCREEN_HEIGHT / 2) + 250), this.textPaint);
+        }
     }
 
     @Override
     public void switchScene() {
-
+        sceneManager.setActiveScene(new SearchScene(this.sceneManager));
     }
 
     public static synchronized void addItemInfo(String searchInfo){

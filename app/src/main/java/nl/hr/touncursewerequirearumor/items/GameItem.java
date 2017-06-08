@@ -18,4 +18,10 @@ public abstract class GameItem {
         Bitmap img = bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), Constants.CURRENT_CONTEXT.getResources().getIdentifier(this.nameRes,"drawable", "nl.hr.touncursewerequirearumor"));
         return img;
     }
+
+    public String findingText(){
+        return "You've found a " +  this.name;
+    }
+
+    public abstract String use();
 }

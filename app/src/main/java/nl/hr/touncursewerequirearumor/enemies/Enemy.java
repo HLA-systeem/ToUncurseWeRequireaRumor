@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import java.util.Random;
 
 import nl.hr.touncursewerequirearumor.Constants;
+import nl.hr.touncursewerequirearumor.items.Anathema;
 
 public abstract class Enemy{ //An abstract class should not have fields
     protected String name;
@@ -37,6 +38,8 @@ public abstract class Enemy{ //An abstract class should not have fields
                 this.speed = speed - (speed/2);
                 break;
         }
+
+        this.cursable();
     }
 
 
@@ -76,6 +79,18 @@ public abstract class Enemy{ //An abstract class should not have fields
             return false;
         }
 
+    }
+
+    protected void cursable(){
+        for(int i=0; i< Constants.DEFEATED_BEFORE.size(); i+=1){
+            Anathema anathema = new Anathema();
+            if(Constants.DEFEATED_BEFORE.get(i) == this.name){
+                anathema.unWatch(this);
+            }
+            else{
+                anathema.watch(this);
+            }
+        }
     }
 
     public void curse(){

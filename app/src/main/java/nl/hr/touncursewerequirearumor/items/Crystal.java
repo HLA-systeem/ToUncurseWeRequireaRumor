@@ -13,4 +13,9 @@ public class Crystal extends GameItem {
         this.nameRes = "crystal";
     }
 
+    public String use(){
+        this.giveEnergy();
+        return "You've absorbed the life energy from the crystal.";
+    }
+
 }
