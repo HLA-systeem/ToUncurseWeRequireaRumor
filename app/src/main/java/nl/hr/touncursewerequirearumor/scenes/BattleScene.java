@@ -11,6 +11,8 @@ import android.graphics.Typeface;
 import android.util.Log;
 import android.view.MotionEvent;
 
+import com.vstechlab.easyfonts.EasyFonts;
+
 import nl.hr.touncursewerequirearumor.Constants;
 import nl.hr.touncursewerequirearumor.enemies.PlastiBat;
 import nl.hr.touncursewerequirearumor.scenes.managers.EnemySelector;
@@ -65,7 +67,7 @@ public class BattleScene implements Scene {
         this.textPaint.setAntiAlias(true);
         this.textPaint.setColor(Color.WHITE);
         this.textPaint.setTextSize(26);
-        this.textPaint.setTypeface(Typeface.DEFAULT_BOLD);
+        this.textPaint.setTypeface(EasyFonts.greenAvocado(Constants.CURRENT_CONTEXT));
 
         if(plastibat != false) {
             this.enemySelector = new EnemySelector();

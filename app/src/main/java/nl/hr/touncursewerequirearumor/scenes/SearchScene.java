@@ -9,6 +9,8 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.view.MotionEvent;
 
+import com.vstechlab.easyfonts.EasyFonts;
+
 import nl.hr.touncursewerequirearumor.Constants;
 import nl.hr.touncursewerequirearumor.R;
 import nl.hr.touncursewerequirearumor.scenes.managers.DrawVNstyle;
@@ -50,7 +52,7 @@ public class SearchScene implements Scene {
         this.textPaint.setAntiAlias(true);
         this.textPaint.setColor(Color.WHITE);
         this.textPaint.setTextSize(26);
-        this.textPaint.setTypeface(Typeface.DEFAULT_BOLD);
+        this.textPaint.setTypeface(EasyFonts.greenAvocado(Constants.CURRENT_CONTEXT));
 
         this.textHeight = (int)textPaint.getTextSize();
 

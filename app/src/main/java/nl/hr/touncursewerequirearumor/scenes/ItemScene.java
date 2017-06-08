@@ -10,6 +10,8 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.view.MotionEvent;
 
+import com.vstechlab.easyfonts.EasyFonts;
+
 import nl.hr.touncursewerequirearumor.Constants;
 import nl.hr.touncursewerequirearumor.R;
 import nl.hr.touncursewerequirearumor.items.GameItem;
@@ -53,7 +55,7 @@ public class ItemScene implements Scene {
         this.textPaint.setAntiAlias(true);
         this.textPaint.setColor(Color.WHITE);
         this.textPaint.setTextSize(26);
-        this.textPaint.setTypeface(Typeface.DEFAULT_BOLD);
+        this.textPaint.setTypeface(EasyFonts.greenAvocado(Constants.CURRENT_CONTEXT));
 
         this.backgroundBox = new Rect();
         this.backgroundBox.set(
