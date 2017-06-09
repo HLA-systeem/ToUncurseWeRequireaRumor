@@ -52,7 +52,7 @@ public class SearchScene implements Scene {
         this.textPaint.setAntiAlias(true);
         this.textPaint.setColor(Color.WHITE);
         this.textPaint.setTextSize(26);
-        this.textPaint.setTypeface(EasyFonts.greenAvocado(Constants.CURRENT_CONTEXT));
+        this.textPaint.setTypeface(Typeface.DEFAULT_BOLD);
 
         this.textHeight = (int)textPaint.getTextSize();
 
@@ -103,10 +103,12 @@ public class SearchScene implements Scene {
                 case MotionEvent.ACTION_UP:
                     if (Constants.rectPressed(e,this.searchBox)) {
                         this.searchButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
+                        this.switchTo = this.searchResult;
                         this.switchScene();
                     }
-                    if (Constants.rectPressed(e,this.searchBox)) {
+                    if (Constants.rectPressed(e,this.statsBox)) {
                         this.statsButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
+                        this.switchTo = new StatsScene(this.sceneManager,false);
                         this.switchScene();
                     }
                     break;
@@ -120,16 +122,11 @@ public class SearchScene implements Scene {
         canvas.drawBitmap(this.searchButton, null, this.searchBox, this.paint);
         canvas.drawBitmap(this.statsButton, null, this.statsBox, this.paint);
         canvas.drawText("SEARCH",  ( (Constants.SCREEN_WIDTH / 3)/2), (Constants.SCREEN_HEIGHT - 100), this.textPaint);
+        canvas.drawText("STATS",  Constants.SCREEN_WIDTH /2, (Constants.SCREEN_HEIGHT - 100), this.textPaint);
     }
 
     @Override
     public void switchScene() {
-        sceneManager.setActiveScene(this.searchResult);
-    }
-
-    public void displayForestBackground(){
-        BitmapFactory bf = new BitmapFactory();
-        Bitmap img = bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), Constants.CURRENT_CONTEXT.getResources().getIdentifier("forest","drawable", "nl.hr.touncursewerequirearumor"));
-        this.background = img;
+        sceneManager.setActiveScene(this.switchTo);
     }
 }

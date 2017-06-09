@@ -7,7 +7,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.Typeface;
 import android.view.MotionEvent;
 
 import com.vstechlab.easyfonts.EasyFonts;
@@ -43,6 +42,7 @@ public class ItemScene implements Scene {
 
         this.itemSelector = new ItemSelector();
         this.item = this.itemSelector.selectItem();
+        this.addText(this.item.findingText());
         this.itemBox = new Rect();
         this.itemBox.set(((Constants.SCREEN_WIDTH/2) - 320),((Constants.SCREEN_HEIGHT/2) - 200),((Constants.SCREEN_WIDTH/2) + 320),((Constants.SCREEN_HEIGHT/2) + 200));
 
@@ -76,7 +76,7 @@ public class ItemScene implements Scene {
                     this.clearBattleInfo();
                     if(this.itemInfo == ""){ //omdat text nog wil verschijnen terwijl de runnable klaar is.
                         if(itemUsed == false) {
-                            item.use();
+                            this.addText(item.use());
                         }
                         else{
                             this.switchScene();
@@ -89,6 +89,7 @@ public class ItemScene implements Scene {
 
     @Override
     public void draw(Canvas canvas) {
+        canvas.drawBitmap(this.background, null, this.backgroundBox, this.paint);
         canvas.drawBitmap(item.displayItem(),null,itemBox,this.paint);
         if(this.itemInfo != null) {
             canvas.drawText(this.itemInfo, (Constants.SCREEN_WIDTH / 2), ((Constants.SCREEN_HEIGHT / 2) + 250), this.textPaint);
@@ -106,6 +107,12 @@ public class ItemScene implements Scene {
 
     public static synchronized void clearBattleInfo(){
         ItemScene.itemInfo = "";
+    }
+
+    private void addText(String text){
+        Runnable delayText = new DrawVNstyle(text,"itemText");
+        Thread t = new Thread(delayText);
+        t.start();
     }
 
 }

@@ -1,6 +1,9 @@
 package nl.hr.touncursewerequirearumor.items;
 
 
+import nl.hr.touncursewerequirearumor.Constants;
+import nl.hr.touncursewerequirearumor.Player;
+
 public class Crystal extends GameItem {
     private String name = "crystal with life energy";
     private String nameRes = "crystalenergy";
@@ -11,6 +14,7 @@ public class Crystal extends GameItem {
 
     private void giveEnergy(){
         this.nameRes = "crystal";
+        Player.player.hpCurrent = Player.player.getStat(Constants.STATS.HEALTH);
     }
 
     public String use(){

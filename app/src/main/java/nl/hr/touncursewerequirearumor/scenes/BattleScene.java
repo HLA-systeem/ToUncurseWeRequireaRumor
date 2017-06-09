@@ -67,9 +67,9 @@ public class BattleScene implements Scene {
         this.textPaint.setAntiAlias(true);
         this.textPaint.setColor(Color.WHITE);
         this.textPaint.setTextSize(26);
-        this.textPaint.setTypeface(EasyFonts.greenAvocado(Constants.CURRENT_CONTEXT));
+        this.textPaint.setTypeface(Typeface.DEFAULT_BOLD);
 
-        if(plastibat != false) {
+        if(plastibat == false) {
             this.enemySelector = new EnemySelector();
             this.enemy = enemySelector.selectEnemy();
         }

@@ -35,7 +35,7 @@ public class EndingScene implements Scene {
         this.textPaint.setTextAlign(Paint.Align.LEFT);
         this.textPaint.setAntiAlias(true);
         this.textPaint.setColor(Color.WHITE);
-        this.textPaint.setTextSize(22);
+        this.textPaint.setTextSize(40);
         this.textPaint.setTypeface(EasyFonts.windSong(Constants.CURRENT_CONTEXT));
 
         this.textHeight = (int)textPaint.getTextSize();

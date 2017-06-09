@@ -39,23 +39,23 @@ public class StatsScene implements Scene {
                     Constants.SCREEN_WIDTH - 5 > e.getX() &&
                     e.getX() > Constants.SCREEN_WIDTH - 15 ){
 
-                if ((int) e.getY() > (45 + this.textHeight) && (int) e.getY() < (55+ this.textHeight)){ //Ik doe dit omdat een switch constants nodig heeft.
+                if ((int) e.getY() > (40 + this.textHeight) && (int) e.getY() < (60+ this.textHeight)){ //Ik doe dit omdat een switch constants nodig heeft.
                     Player.player.increaseStat(Constants.STATS.HEALTH);
                 }
-                if ((int) e.getY() > (95 + this.textHeight) && (int) e.getY() < (105+ this.textHeight)){
+                if ((int) e.getY() > (90 + this.textHeight) && (int) e.getY() < (110+ this.textHeight)){
                     Player.player.increaseStat(Constants.STATS.ATTACK);
                 }
-                if ((int) e.getY() > (145 + this.textHeight) && (int) e.getY() < (155+ this.textHeight)){
+                if ((int) e.getY() > (140 + this.textHeight) && (int) e.getY() < (160+ this.textHeight)){
                     Player.player.increaseStat(Constants.STATS.SPEED);
                 }
-                if ((int) e.getY() > (195 + this.textHeight) && (int) e.getY() < (205+ this.textHeight)){
+                if ((int) e.getY() > (190 + this.textHeight) && (int) e.getY() < (210+ this.textHeight)){
                     Player.player.increaseStat(Constants.STATS.ACCURACY);
                 }
             }
 
             if (e.getAction() == MotionEvent.ACTION_UP &&
-                    e.getX() > ( (Constants.SCREEN_WIDTH - 10) - Constants.getTextWidth("RETURN",this.textPaint) ) &&
-                    e.getY() > Constants.SCREEN_HEIGHT - 12){
+                    e.getX() > ( (Constants.SCREEN_WIDTH - 20) - Constants.getTextWidth("RETURN",this.textPaint) ) &&
+                    e.getY() > Constants.SCREEN_HEIGHT - 24){
                     this.switchScene();
             }
         }
