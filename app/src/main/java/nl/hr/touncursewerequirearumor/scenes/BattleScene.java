@@ -125,7 +125,7 @@ public class BattleScene implements Scene {
                         if (Constants.rectPressed(e,this.runBox)) {
                             this.runButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
                             this.battleManager.setBattleState(new Run(this.battleManager,this.player,this.enemy));
-
+                            this.battleManager.getBattleState().execute();
                         }
                         break;
                 }

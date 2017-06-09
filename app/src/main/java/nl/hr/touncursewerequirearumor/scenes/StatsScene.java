@@ -37,19 +37,23 @@ public class StatsScene implements Scene {
         if (e != null) {
             if (e.getAction() == MotionEvent.ACTION_UP &&
                     Constants.SCREEN_WIDTH - 5 > e.getX() &&
-                    e.getX() > Constants.SCREEN_WIDTH - 15 ){
+                    e.getX() > Constants.SCREEN_WIDTH - 20 ){
 
                 if ((int) e.getY() > (40 + this.textHeight) && (int) e.getY() < (60+ this.textHeight)){ //Ik doe dit omdat een switch constants nodig heeft.
                     Player.player.increaseStat(Constants.STATS.HEALTH);
+                    this.switchScene();
                 }
                 if ((int) e.getY() > (90 + this.textHeight) && (int) e.getY() < (110+ this.textHeight)){
                     Player.player.increaseStat(Constants.STATS.ATTACK);
+                    this.switchScene();
                 }
                 if ((int) e.getY() > (140 + this.textHeight) && (int) e.getY() < (160+ this.textHeight)){
                     Player.player.increaseStat(Constants.STATS.SPEED);
+                    this.switchScene();
                 }
                 if ((int) e.getY() > (190 + this.textHeight) && (int) e.getY() < (210+ this.textHeight)){
                     Player.player.increaseStat(Constants.STATS.ACCURACY);
+                    this.switchScene();
                 }
             }
 

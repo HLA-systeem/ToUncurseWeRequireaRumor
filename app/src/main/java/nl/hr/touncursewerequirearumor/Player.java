@@ -3,7 +3,7 @@ package nl.hr.touncursewerequirearumor;
 import java.util.Random;
 
 public class Player {
-    private int hp = 20; //this is the max health
+    private int hp = 25; //this is the max health
     private int att = 5;
     private int speed = 40;
     private int hit = 70;

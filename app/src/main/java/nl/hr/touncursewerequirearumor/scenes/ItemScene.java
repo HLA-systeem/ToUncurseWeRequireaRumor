@@ -7,9 +7,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.view.MotionEvent;
 
-import com.vstechlab.easyfonts.EasyFonts;
 
 import nl.hr.touncursewerequirearumor.Constants;
 import nl.hr.touncursewerequirearumor.R;
@@ -55,7 +55,7 @@ public class ItemScene implements Scene {
         this.textPaint.setAntiAlias(true);
         this.textPaint.setColor(Color.WHITE);
         this.textPaint.setTextSize(26);
-        this.textPaint.setTypeface(EasyFonts.greenAvocado(Constants.CURRENT_CONTEXT));
+        this.textPaint.setTypeface(Typeface.DEFAULT_BOLD);
 
         this.backgroundBox = new Rect();
         this.backgroundBox.set(
@@ -77,6 +77,7 @@ public class ItemScene implements Scene {
                     if(this.itemInfo == ""){ //omdat text nog wil verschijnen terwijl de runnable klaar is.
                         if(itemUsed == false) {
                             this.addText(item.use());
+                            itemUsed = true;
                         }
                         else{
                             this.switchScene();
