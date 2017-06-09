@@ -1,6 +1,7 @@
 package nl.hr.touncursewerequirearumor.scenes.managers.battle_states;
 
 
+import nl.hr.touncursewerequirearumor.Constants;
 import nl.hr.touncursewerequirearumor.Player;
 import nl.hr.touncursewerequirearumor.enemies.Enemy;
 import nl.hr.touncursewerequirearumor.scenes.BattleScene;
@@ -18,7 +19,7 @@ public class PlayerAttack extends BattleState{
     public void execute() {
         BattleScene.clearBattleInfo();
         int damage = player.dealDamage();
-        if(this.enemy.registerHit(player.getHit())) {
+        if(Constants.registerHit(player.getStat(Constants.STATS.ACCURACY))) {
             this.manager.addText(this.enemy.onDamage(damage));
         }
         else{

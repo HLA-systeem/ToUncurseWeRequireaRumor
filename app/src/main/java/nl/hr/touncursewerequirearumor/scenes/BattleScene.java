@@ -156,6 +156,7 @@ public class BattleScene implements Scene {
             canvas.drawBitmap(this.runButton, null, this.runBox, this.paint);
             canvas.drawText("ATTACK", ((Constants.SCREEN_WIDTH / 2) / 2), (Constants.SCREEN_HEIGHT - 100), this.textPaint);
             canvas.drawText("RUN", ((Constants.SCREEN_WIDTH / 2) + ((Constants.SCREEN_WIDTH / 2) / 2)), (Constants.SCREEN_HEIGHT - 100), this.textPaint);
+            canvas.drawText("Current Health: " + Player.player.hpCurrent +"/" + Player.player.getStat(Constants.STATS.HEALTH), 40, 40, this.textPaint);
         }
 
         canvas.drawBitmap(enemy.displayCharacter(),null,enemyBox,this.paint);

@@ -77,7 +77,7 @@ public class StatsScene implements Scene {
 
             height += 100;
         }
-
+        canvas.drawText("Current Health: " + Player.player.hpCurrent +"/" + Player.player.getStat(Constants.STATS.HEALTH),  (Constants.SCREEN_WIDTH/2), Constants.SCREEN_HEIGHT/2, this.textPaint);
         canvas.drawText("RETURN",  (Constants.SCREEN_WIDTH - 5) - Constants.getTextWidth("RETURN",this.textPaint), Constants.SCREEN_HEIGHT - 7, this.textPaint);
     }
 

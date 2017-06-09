@@ -68,20 +68,6 @@ public abstract class Enemy{ //An abstract class should not have fields
         }
     }
 
-    public Boolean registerHit(int hitRate){
-        Random random = new Random();
-        int chance = hitRate;
-        int outcome = random.nextInt(100) + 1;
-        if(outcome <= (hitRate)){
-            return true;
-        }
-
-        else {
-            return false;
-        }
-
-    }
-
     protected void cursable(){
         for(int i=0; i< Constants.DEFEATED_BEFORE.size(); i+=1){
             Anathema anathema = new Anathema();
@@ -107,6 +93,10 @@ public abstract class Enemy{ //An abstract class should not have fields
 
     public int getAtt(){
         return this.att;
+    }
+
+    public int getHit(){
+        return this.hit;
     }
 
     public int getSpeed(){

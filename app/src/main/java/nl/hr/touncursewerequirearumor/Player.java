@@ -10,7 +10,7 @@ public class Player {
 
     private String boost = "None";
     public static Player player;
-    public int hpCurrent = 20;
+    public int hpCurrent = 25;
 
     private Player(){
         //Just here to make me remember that I have to make constructors private in a sigleton.
@@ -25,10 +25,6 @@ public class Player {
 
     public void setBoost(String Boost){
         this.boost = boost;
-    }
-
-    public int getHit(){
-        return this.hit;
     }
 
 
@@ -95,6 +91,7 @@ public class Player {
         switch(stat){
             case HEALTH:
                 this.hp += 20;
+                this.hpCurrent +=20;
                 break;
             case ATTACK:
                 this.att += 5;

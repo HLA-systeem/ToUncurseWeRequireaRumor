@@ -24,7 +24,7 @@ public class Aftermath extends BattleState {
                 manager.addText("You've defeated the enemy!");
                 Random random = new Random();
                 int outcome = random.nextInt(100) + 1;
-                if(enemy.getName() == "Plasticat" && outcome <= 25){
+                if(enemy.getName() == "Plasticat" && outcome <= 10){
                     manager.setResult("Plastibat");
                 }
                 else{

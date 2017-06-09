@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Constants{
     public final static String MY_TAG = "Dev's Tag";
@@ -35,6 +36,20 @@ public class Constants{
         else{
             return false;
         }
+    }
+
+    public final static Boolean registerHit(int hitRate){
+        Random random = new Random();
+        int chance = hitRate;
+        int outcome = random.nextInt(100) + 1;
+        if(outcome <= (hitRate)){
+            return true;
+        }
+
+        else {
+            return false;
+        }
+
     }
 
 
