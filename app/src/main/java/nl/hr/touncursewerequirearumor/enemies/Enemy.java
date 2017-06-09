@@ -60,6 +60,7 @@ public abstract class Enemy{ //An abstract class should not have fields
 
     public Boolean defeated(){
         if(this.hp <= 0){
+            Constants.DEFEATED_BEFORE.add(this.name);
             return true;
         }
         else{
@@ -88,7 +89,6 @@ public abstract class Enemy{ //An abstract class should not have fields
                 anathema.unWatch(this);
             }
             else{
-                //System.
                 anathema.watch(this);
             }
         }
