@@ -14,7 +14,7 @@ public class Anathema extends GameItem implements Observable {
     }
 
     public String use(){
-
+        this.notifyWatchers();
         return "You've activated the curse stored in the Anathema.";
     }
 

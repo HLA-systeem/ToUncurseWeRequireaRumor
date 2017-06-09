@@ -1,5 +1,6 @@
 package nl.hr.touncursewerequirearumor.scenes.managers.battle_states;
 
+import nl.hr.touncursewerequirearumor.Constants;
 import nl.hr.touncursewerequirearumor.Player;
 import nl.hr.touncursewerequirearumor.enemies.Enemy;
 import nl.hr.touncursewerequirearumor.scenes.BattleScene;
@@ -14,7 +15,13 @@ public class EnemyAttack extends BattleState {
     @Override
     public void execute() {
         BattleScene.clearBattleInfo();
-        this.manager.addText(this.player.onDamage(this.enemy.getAtt()));
+        int damage = this.enemy.getAtt();
+        if(Constants.registerHit(enemy.getHit())) {
+            this.manager.addText(this.player.onDamage(damage));
+        }
+        else{
+            manager.addText("The "+ this.enemy.getName()+" missed!");
+        }
         if(player.gameover()){
             this.manager.setBattleState(new Aftermath(this.manager, this.player, this.enemy,"Defeated"));
         }

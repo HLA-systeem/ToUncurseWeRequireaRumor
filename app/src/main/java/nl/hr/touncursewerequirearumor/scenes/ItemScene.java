@@ -10,7 +10,6 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.view.MotionEvent;
 
-import com.vstechlab.easyfonts.EasyFonts;
 
 import nl.hr.touncursewerequirearumor.Constants;
 import nl.hr.touncursewerequirearumor.R;
@@ -41,8 +40,11 @@ public class ItemScene implements Scene {
     public ItemScene(SceneManager sceneManager){
         this.sceneManager = sceneManager;
 
+
+
         this.itemSelector = new ItemSelector();
         this.item = this.itemSelector.selectItem();
+        this.addText(this.item.findingText());
         this.itemBox = new Rect();
         this.itemBox.set(((Constants.SCREEN_WIDTH/2) - 320),((Constants.SCREEN_HEIGHT/2) - 200),((Constants.SCREEN_WIDTH/2) + 320),((Constants.SCREEN_HEIGHT/2) + 200));
 
@@ -55,7 +57,7 @@ public class ItemScene implements Scene {
         this.textPaint.setAntiAlias(true);
         this.textPaint.setColor(Color.WHITE);
         this.textPaint.setTextSize(26);
-        this.textPaint.setTypeface(EasyFonts.greenAvocado(Constants.CURRENT_CONTEXT));
+        this.textPaint.setTypeface(Typeface.DEFAULT_BOLD);
 
         this.backgroundBox = new Rect();
         this.backgroundBox.set(
@@ -73,10 +75,11 @@ public class ItemScene implements Scene {
         if(e != null && DrawVNstyle.running == false){
             if(e.getAction() == MotionEvent.ACTION_UP){
                 if(DrawVNstyle.running == false){
-                    this.clearBattleInfo();
+                    this.clearItemInfo();
                     if(this.itemInfo == ""){ //omdat text nog wil verschijnen terwijl de runnable klaar is.
                         if(itemUsed == false) {
-                            item.use();
+                            this.addText(item.use());
+                            itemUsed = true;
                         }
                         else{
                             this.switchScene();
@@ -89,6 +92,7 @@ public class ItemScene implements Scene {
 
     @Override
     public void draw(Canvas canvas) {
+        canvas.drawBitmap(this.background, null, this.backgroundBox, this.paint);
         canvas.drawBitmap(item.displayItem(),null,itemBox,this.paint);
         if(this.itemInfo != null) {
             canvas.drawText(this.itemInfo, (Constants.SCREEN_WIDTH / 2), ((Constants.SCREEN_HEIGHT / 2) + 250), this.textPaint);
@@ -104,8 +108,15 @@ public class ItemScene implements Scene {
         ItemScene.itemInfo += searchInfo;
     }
 
-    public static synchronized void clearBattleInfo(){
+    public static synchronized void clearItemInfo(){
         ItemScene.itemInfo = "";
+    }
+
+    private void addText(String text){
+        ItemScene.clearItemInfo();
+        Runnable delayText = new DrawVNstyle(text,"itemText");
+        Thread t = new Thread(delayText);
+        t.start();
     }
 
 }

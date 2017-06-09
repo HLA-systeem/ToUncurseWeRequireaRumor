@@ -36,26 +36,29 @@ public class StatsScene implements Scene {
     public void update(MotionEvent e) {
         if (e != null) {
             if (e.getAction() == MotionEvent.ACTION_UP &&
-                    Constants.SCREEN_WIDTH - 5 > e.getX() &&
-                    e.getX() > Constants.SCREEN_WIDTH - 15 ){
+                    e.getX() > Constants.SCREEN_WIDTH - 100 ){
 
-                if ((int) e.getY() > (45 + this.textHeight) && (int) e.getY() < (55+ this.textHeight)){ //Ik doe dit omdat een switch constants nodig heeft.
+                if ((int) e.getY() > (50 + this.textHeight) && (int) e.getY() < (150+ this.textHeight)){ //Ik doe dit omdat een switch constants nodig heeft.
                     Player.player.increaseStat(Constants.STATS.HEALTH);
+                    this.switchScene();
                 }
-                if ((int) e.getY() > (95 + this.textHeight) && (int) e.getY() < (105+ this.textHeight)){
+                if ((int) e.getY() > (150 + this.textHeight) && (int) e.getY() < (250+ this.textHeight)){
                     Player.player.increaseStat(Constants.STATS.ATTACK);
+                    this.switchScene();
                 }
-                if ((int) e.getY() > (145 + this.textHeight) && (int) e.getY() < (155+ this.textHeight)){
+                if ((int) e.getY() > (250 + this.textHeight) && (int) e.getY() < (350+ this.textHeight)){
                     Player.player.increaseStat(Constants.STATS.SPEED);
+                    this.switchScene();
                 }
-                if ((int) e.getY() > (195 + this.textHeight) && (int) e.getY() < (205+ this.textHeight)){
+                if ((int) e.getY() > (350 + this.textHeight) && (int) e.getY() < (450+ this.textHeight)){
                     Player.player.increaseStat(Constants.STATS.ACCURACY);
+                    this.switchScene();
                 }
             }
 
             if (e.getAction() == MotionEvent.ACTION_UP &&
-                    e.getX() > ( (Constants.SCREEN_WIDTH - 10) - Constants.getTextWidth("RETURN",this.textPaint) ) &&
-                    e.getY() > Constants.SCREEN_HEIGHT - 12){
+                    e.getX() > ( (Constants.SCREEN_WIDTH - 55) - Constants.getTextWidth("RETURN",this.textPaint) ) &&
+                    e.getY() > Constants.SCREEN_HEIGHT - 57){
                     this.switchScene();
             }
         }
@@ -63,18 +66,18 @@ public class StatsScene implements Scene {
 
     @Override
     public void draw(Canvas canvas) {
-        int height = 50;
+        int height = 100;
         for(Constants.STATS status : Constants.STATS.values()){
             String statusString = status.toString();
             canvas.drawText(statusString + ": " + Player.player.getStat(status),  ( (Constants.SCREEN_WIDTH / 3)/2), height + this.textHeight, this.textPaint);
 
             if(this.levelUp == true){
-                canvas.drawText("+",  Constants.SCREEN_WIDTH - 10, height + this.textHeight, this.textPaint);
+                canvas.drawText("+",  Constants.SCREEN_WIDTH - 50, height + this.textHeight, this.textPaint);
             }
 
-            height += 50;
+            height += 100;
         }
-
+        canvas.drawText("Current Health: " + Player.player.hpCurrent +"/" + Player.player.getStat(Constants.STATS.HEALTH),  (Constants.SCREEN_WIDTH/2), Constants.SCREEN_HEIGHT/2, this.textPaint);
         canvas.drawText("RETURN",  (Constants.SCREEN_WIDTH - 5) - Constants.getTextWidth("RETURN",this.textPaint), Constants.SCREEN_HEIGHT - 7, this.textPaint);
     }
 

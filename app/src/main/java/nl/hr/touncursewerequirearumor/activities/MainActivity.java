@@ -54,9 +54,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button newgame = (Button) findViewById(R.id.button_newgame);
         newgame.setOnClickListener(this);
 
-        Button load = (Button) findViewById(R.id.button_load);
-        load.setOnClickListener(this);
-
         Button settings = (Button) findViewById(R.id.button_settings);
         settings.setOnClickListener(this);
 
@@ -81,10 +78,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent game = new Intent(this, GameActivity.class);
                 game.putExtra("weatherID", this.weather);
                 startActivity(game);
-                break;
-            case R.id.button_load:
-                //Intent savesview = new Intent(this, SavesView.class);
-                //startActivity(savesview);
                 break;
             case R.id.button_settings:
                 Intent settings = new Intent(this, SettingsActivity.class);

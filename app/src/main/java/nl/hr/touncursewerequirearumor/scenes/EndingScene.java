@@ -35,7 +35,7 @@ public class EndingScene implements Scene {
         this.textPaint.setTextAlign(Paint.Align.LEFT);
         this.textPaint.setAntiAlias(true);
         this.textPaint.setColor(Color.WHITE);
-        this.textPaint.setTextSize(22);
+        this.textPaint.setTextSize(40);
         this.textPaint.setTypeface(EasyFonts.windSong(Constants.CURRENT_CONTEXT));
 
         this.textHeight = (int)textPaint.getTextSize();
@@ -56,7 +56,14 @@ public class EndingScene implements Scene {
 
     @Override
     public void draw(Canvas canvas) {
+        canvas.drawBitmap(this.scroll, null, this.scrollBox, this.paint);
 
+        int x = 40;
+        int y = 162 + this.textHeight;
+        for (String line: scrollText.split("\n")){
+            canvas.drawText(line, x, y, this.textPaint);
+            y += this.textPaint.descent() - this.textPaint.ascent();
+        }
     }
 
     @Override

@@ -33,8 +33,8 @@ public class IntroScene implements Scene {
             "Many heroes are requested to look for this creature because of\n" +
             "this, which is good for our business.\n\n" +
             "Please capture the Atroe before anyone else does,\n" +
-            "We want to keep attracting more heroes and have them searching\n" +
-            "in the area for a while.\n\n" +
+            "We want to keep attracting more heroes and \n" +
+            "have them searching in the area for a while.\n" +
             "                           - You know who";
 
     public IntroScene(SceneManager sceneManager){
@@ -45,7 +45,7 @@ public class IntroScene implements Scene {
         this.textPaint.setTextAlign(Paint.Align.LEFT);
         this.textPaint.setAntiAlias(true);
         this.textPaint.setColor(Color.WHITE);
-        this.textPaint.setTextSize(22);
+        this.textPaint.setTextSize(40);
         this.textPaint.setTypeface(EasyFonts.windSong(Constants.CURRENT_CONTEXT));
 
         this.textHeight = (int)textPaint.getTextSize();

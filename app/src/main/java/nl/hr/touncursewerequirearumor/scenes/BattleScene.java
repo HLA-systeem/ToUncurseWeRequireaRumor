@@ -67,9 +67,9 @@ public class BattleScene implements Scene {
         this.textPaint.setAntiAlias(true);
         this.textPaint.setColor(Color.WHITE);
         this.textPaint.setTextSize(26);
-        this.textPaint.setTypeface(EasyFonts.greenAvocado(Constants.CURRENT_CONTEXT));
+        this.textPaint.setTypeface(Typeface.DEFAULT_BOLD);
 
-        if(plastibat != false) {
+        if(plastibat == false) {
             this.enemySelector = new EnemySelector();
             this.enemy = enemySelector.selectEnemy();
         }
@@ -125,7 +125,7 @@ public class BattleScene implements Scene {
                         if (Constants.rectPressed(e,this.runBox)) {
                             this.runButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
                             this.battleManager.setBattleState(new Run(this.battleManager,this.player,this.enemy));
-
+                            this.battleManager.getBattleState().execute();
                         }
                         break;
                 }
@@ -156,6 +156,7 @@ public class BattleScene implements Scene {
             canvas.drawBitmap(this.runButton, null, this.runBox, this.paint);
             canvas.drawText("ATTACK", ((Constants.SCREEN_WIDTH / 2) / 2), (Constants.SCREEN_HEIGHT - 100), this.textPaint);
             canvas.drawText("RUN", ((Constants.SCREEN_WIDTH / 2) + ((Constants.SCREEN_WIDTH / 2) / 2)), (Constants.SCREEN_HEIGHT - 100), this.textPaint);
+            canvas.drawText("You're health: "+Player.player.hpCurrent +"/" + Player.player.getStat(Constants.STATS.HEALTH), 160, 40, this.textPaint);
         }
 
         canvas.drawBitmap(enemy.displayCharacter(),null,enemyBox,this.paint);
@@ -182,6 +183,9 @@ public class BattleScene implements Scene {
                 break;
             case "Plastibat":
                 this.switchTo = new BattleScene(this.sceneManager,true);
+                break;
+            case "Atroe":
+                this.switchTo = new EndingScene();
                 break;
         }
         this.switchScene();

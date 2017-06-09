@@ -28,7 +28,7 @@ public class BattleManager {
     }
 
     public void addText(String text){
-        Runnable delayText = new DrawVNstyle(text);
+        Runnable delayText = new DrawVNstyle(text,"battleText");
         Thread t = new Thread(delayText);
         t.start();
     }

@@ -60,25 +60,12 @@ public abstract class Enemy{ //An abstract class should not have fields
 
     public Boolean defeated(){
         if(this.hp <= 0){
+            Constants.DEFEATED_BEFORE.add(this.name);
             return true;
         }
         else{
             return false;
         }
-    }
-
-    public Boolean registerHit(int hitRate){
-        Random random = new Random();
-        int chance = hitRate;
-        int outcome = random.nextInt(100) + 1;
-        if(outcome <= (hitRate)){
-            return true;
-        }
-
-        else {
-            return false;
-        }
-
     }
 
     protected void cursable(){
@@ -106,6 +93,10 @@ public abstract class Enemy{ //An abstract class should not have fields
 
     public int getAtt(){
         return this.att;
+    }
+
+    public int getHit(){
+        return this.hit;
     }
 
     public int getSpeed(){
