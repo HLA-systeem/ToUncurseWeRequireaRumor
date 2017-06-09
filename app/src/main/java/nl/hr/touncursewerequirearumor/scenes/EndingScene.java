@@ -56,7 +56,14 @@ public class EndingScene implements Scene {
 
     @Override
     public void draw(Canvas canvas) {
+        canvas.drawBitmap(this.scroll, null, this.scrollBox, this.paint);
 
+        int x = 40;
+        int y = 162 + this.textHeight;
+        for (String line: scrollText.split("\n")){
+            canvas.drawText(line, x, y, this.textPaint);
+            y += this.textPaint.descent() - this.textPaint.ascent();
+        }
     }
 
     @Override
