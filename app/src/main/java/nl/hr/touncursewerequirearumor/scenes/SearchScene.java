@@ -105,7 +105,7 @@ public class SearchScene implements Scene {
                     }
                     if (Constants.rectPressed(e,this.statsBox)) {
                         this.statsButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
-                        this.switchTo = new StatsScene(this.sceneManager,true);
+                        this.switchTo = new StatsScene(this.sceneManager,false);
                         this.switchScene();
                     }
                     break;

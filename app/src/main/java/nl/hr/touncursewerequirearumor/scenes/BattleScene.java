@@ -184,6 +184,9 @@ public class BattleScene implements Scene {
             case "Plastibat":
                 this.switchTo = new BattleScene(this.sceneManager,true);
                 break;
+            case "Atroe":
+                this.switchTo = new EndingScene();
+                break;
         }
         this.switchScene();
     }

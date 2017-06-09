@@ -27,6 +27,9 @@ public class Aftermath extends BattleState {
                 if(enemy.getName() == "Plasticat" && outcome <= 10){
                     manager.setResult("Plastibat");
                 }
+                else if(enemy.getName() == "Atroe"){
+                    manager.setResult("Atroe");
+                }
                 else{
                     manager.setResult("Winner");
                 }
