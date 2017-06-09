@@ -31,12 +31,10 @@ public class SearchScene implements Scene {
     private Rect backgroundBox;
     private Rect searchBox;
     private Rect statsBox;
-    private Rect saveBox;
 
     private Bitmap background;
     private Bitmap searchButton;
     private Bitmap statsButton;
-    private Bitmap saveButton;
     private BitmapFactory bf;
 
 
@@ -85,7 +83,6 @@ public class SearchScene implements Scene {
         this.background = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.forest);
         this.searchButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
         this.statsButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
-        this.saveButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
     }
 
     @Override
@@ -108,7 +105,7 @@ public class SearchScene implements Scene {
                     }
                     if (Constants.rectPressed(e,this.statsBox)) {
                         this.statsButton = this.bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.buttonidle);
-                        this.switchTo = new StatsScene(this.sceneManager,false);
+                        this.switchTo = new StatsScene(this.sceneManager,true);
                         this.switchScene();
                     }
                     break;

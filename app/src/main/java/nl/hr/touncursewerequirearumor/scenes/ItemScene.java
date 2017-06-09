@@ -40,6 +40,8 @@ public class ItemScene implements Scene {
     public ItemScene(SceneManager sceneManager){
         this.sceneManager = sceneManager;
 
+
+
         this.itemSelector = new ItemSelector();
         this.item = this.itemSelector.selectItem();
         this.addText(this.item.findingText());
@@ -73,7 +75,7 @@ public class ItemScene implements Scene {
         if(e != null && DrawVNstyle.running == false){
             if(e.getAction() == MotionEvent.ACTION_UP){
                 if(DrawVNstyle.running == false){
-                    this.clearBattleInfo();
+                    this.clearItemInfo();
                     if(this.itemInfo == ""){ //omdat text nog wil verschijnen terwijl de runnable klaar is.
                         if(itemUsed == false) {
                             this.addText(item.use());
@@ -106,11 +108,12 @@ public class ItemScene implements Scene {
         ItemScene.itemInfo += searchInfo;
     }
 
-    public static synchronized void clearBattleInfo(){
+    public static synchronized void clearItemInfo(){
         ItemScene.itemInfo = "";
     }
 
     private void addText(String text){
+        ItemScene.clearItemInfo();
         Runnable delayText = new DrawVNstyle(text,"itemText");
         Thread t = new Thread(delayText);
         t.start();

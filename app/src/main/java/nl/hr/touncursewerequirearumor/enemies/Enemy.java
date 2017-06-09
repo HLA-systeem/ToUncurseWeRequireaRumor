@@ -88,6 +88,7 @@ public abstract class Enemy{ //An abstract class should not have fields
                 anathema.unWatch(this);
             }
             else{
+                //System.
                 anathema.watch(this);
             }
         }
