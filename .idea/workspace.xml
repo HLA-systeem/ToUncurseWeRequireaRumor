@@ -11,14 +11,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97839f3c-1c38-484b-8fdc-66eeee318337" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/EndingScene.java" afterPath="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/EndingScene.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/IntroScene.java" afterPath="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/IntroScene.java" />
     </list>
     <ignored path="ToUncurseWeRequireaRumor.iws" />
@@ -82,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IntroScene.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="IntroScene.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/IntroScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="87" selection-end-column="9" />
+            <state relative-caret-position="442">
+              <caret line="92" column="8" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -102,10 +94,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EndingScene.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EndingScene.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/EndingScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="187">
               <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding />
             </state>
@@ -2638,8 +2630,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/managers/battle_states/Aftermath.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/BattleScene.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/Player.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/IntroScene.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/EndingScene.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/IntroScene.java" />
       </list>
     </option>
   </component>
@@ -3754,18 +3746,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/IntroScene.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/EndingScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="87" selection-end-column="9" />
+        <state relative-caret-position="187">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/EndingScene.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/hr/touncursewerequirearumor/scenes/IntroScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="442">
+          <caret line="92" column="8" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
           <folding />
         </state>
       </provider>

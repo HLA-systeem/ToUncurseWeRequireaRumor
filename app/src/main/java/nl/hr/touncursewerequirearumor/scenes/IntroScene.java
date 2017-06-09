@@ -90,7 +90,6 @@ public class IntroScene implements Scene {
 
     @Override
     public void switchScene() {
-        //sceneManager.setActiveScene(new SearchScene(sceneManager));
-        sceneManager.setActiveScene(new EndingScene());
+        sceneManager.setActiveScene(new SearchScene(sceneManager));
     }
 }
