@@ -48,4 +48,14 @@ Used basically everywhere.
 ## UML
 https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/UML_To_Uncurse_We_Require_a_Rumor.pdf
 
+Beoordeling =>
+
+Er is gebruikt gemaakt van en static util method in de constants java class.
+Scene interface en de classes die scenes implementeren zitten in scenes folder
+Duidelijk gebruikt gemaakt van encapsulation, inheritance, composition
+Player class is een singleton in de vorm van =>  public static synchronized Player getInstance() methode
+Strategy pattern zit er ook in managers folder in scenes
+
+Ik geef de game een voldoende. Codes waren goed gestructureerd en leesbaar voor mij. Het heeft alle onderdelen toegepast.
+Verbeterpunt is om wel wat meer comments te gebruiken om de functie van de classes beter uit te leggen voor mensen die niet zo goed zijn in android.
 
