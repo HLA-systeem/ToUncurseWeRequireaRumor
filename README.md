@@ -4,7 +4,10 @@ You will need an Android (emulator) in order to run the game as it is.
 The part of this repository that concerns the game can be found in the following folder:
 https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/tree/master/app/src/main/java/nl/hr/touncursewerequirearumor
 
-All images currently in the game are 100% made by me.
+All images in the game were made by me.
+
+Here's a link to a demo-run of the game:
+https://youtu.be/tu5wjrGiSKI
 
 ## Reccomended way of running the game
 1. Use a real Android phone.
@@ -42,10 +45,22 @@ The Player.java is a Singleton.
 
 https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main/java/nl/hr/touncursewerequirearumor/Player.java
 
-### Encapsulation, Composition, Inheritance
-Used basically everywhere.
+### Observer
+The Anathema is an item the player can pickup. When the player activates the Anathema, all enemies that the player encountered but didn't defeat (by running from the battle) will have there stats halved. 
+
+When the player encounter's an enemy it will start looking for a static ArrayList in Constants, if it has been defeated before with it's cursable method:
+https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main/java/nl/hr/touncursewerequirearumor/enemies/Enemy.java
+
+If the player hasn't defeated the enemy before it will start watching the Anathema, it will unwatch the Anathema if it had been defeated before. The Anathemma implements the observable method in order fot the enemy to watch it:
+
+https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main/java/nl/hr/touncursewerequirearumor/items/Observable.java
+
+And the enemy implents the observer method in order to be notified of it's activation:
+https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main/java/nl/hr/touncursewerequirearumor/items/Observer.java
 
 ## UML
 https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/UML_To_Uncurse_We_Require_a_Rumor.pdf
 
+## Library Used
+https://github.com/vsvankhede/EasyFonts
 
