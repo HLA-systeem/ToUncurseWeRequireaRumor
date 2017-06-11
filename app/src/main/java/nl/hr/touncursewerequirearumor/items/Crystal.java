@@ -1,6 +1,9 @@
 package nl.hr.touncursewerequirearumor.items;
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 import nl.hr.touncursewerequirearumor.Constants;
 import nl.hr.touncursewerequirearumor.Player;
 
@@ -21,5 +24,13 @@ public class Crystal extends GameItem {
         this.giveEnergy();
         return "You've absorbed the life energy from the crystal.";
     }
+
+    @Override
+    public Bitmap displayItem(){
+        BitmapFactory bf = new BitmapFactory();
+        Bitmap img = bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), Constants.CURRENT_CONTEXT.getResources().getIdentifier(this.nameRes,"drawable", "nl.hr.touncursewerequirearumor"));
+        return img;
+    }
+
 
 }

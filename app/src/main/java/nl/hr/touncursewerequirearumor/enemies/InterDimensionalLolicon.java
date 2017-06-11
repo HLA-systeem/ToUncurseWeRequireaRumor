@@ -4,7 +4,7 @@ public class InterDimensionalLolicon extends Enemy {
     private String name = "interdimensional Lolicon";
     private String nameRes = "interdimensionallolicon";
     private int hp = 80;
-    private int att = 50;
+    private int att = 40;
     private int speed = 100;
     private int hit = 100;
 

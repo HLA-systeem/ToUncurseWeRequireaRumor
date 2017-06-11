@@ -97,10 +97,10 @@ public class Player {
                 this.att += 5;
                 break;
             case SPEED:
-                this.speed += 2;
+                this.speed += 10;
                 break;
             case ACCURACY:
-                this.hit += 2;
+                this.hit += 5;
                 break;
         }
     }
