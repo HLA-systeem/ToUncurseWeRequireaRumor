@@ -64,3 +64,20 @@ https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main
 ## Library Used
 https://github.com/vsvankhede/EasyFonts
 
+## Where to find examples of...
+### Enumerations
+The stats of the player are declared as an enum under Constants:
+https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main/java/nl/hr/touncursewerequirearumor/Constants.java
+
+The player had one big getter/setter for all it's stats, which takes a value of the stats enum as it's parameter:
+https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main/java/nl/hr/touncursewerequirearumor/Player.java
+
+### Namespaces 
+Can't use Java without it.
+
+### Polymorfism, Composition and Inherentance
+Used on many places, take a look at the UML to see which ones were used where.
+ 
+
+
+
