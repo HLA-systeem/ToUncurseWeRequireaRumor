@@ -59,7 +59,7 @@ And the enemy implents the observer method in order to be notified of it's activ
 https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main/java/nl/hr/touncursewerequirearumor/items/Observer.java
 
 ## UML
-!(https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/UML_To_Uncurse_We_Require_a_Rumor.jpg)
+![alt text](https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/UML_To_Uncurse_We_Require_a_Rumor.jpg)
 
 ## Library Used
 https://github.com/vsvankhede/EasyFonts
