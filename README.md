@@ -9,18 +9,19 @@ All images in the game were made by me.
 Here's a link to a demo-run of the game:
 https://youtu.be/tu5wjrGiSKI
 
-## Reccomended way of running the game
+## Recommended way of running the game
 1. Use a real Android phone.
 2. Open up the Settings on your Android Phone.
 3. Scroll down until you see the 'About phone' option (This option should show your Android OS version), and press it.
 4. Scroll down until you see the your phones Build Number.
-5. Press the Build number 7 times until you enter Developer Mode (Android will tell you when your about to).
-6. Developer options should hava appeard under the main settings. Press it, scroll down until you see USB debugging and enable it.
+5. Press the Build number 7 times until you enter Developer Mode (Android will tell you when you're about to).
+6. Developer options should have appeared under the main settings. Press it, scroll down until you see USB debugging and enable it.
 7. Download Android Studio on your computer.
 8. Open this project in Android Studio.
 9. Connect your computer to your Android by usb cable.
 10. Press Shift+F10 or click the green arrow.
-11. The title screen of the game wil open, press New Game
+11. The title screen of the game will open, press New Game
+
 
 ## Design-Patterns Used
 
@@ -46,23 +47,18 @@ The Player.java is a Singleton.
 https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main/java/nl/hr/touncursewerequirearumor/Player.java
 
 ### Observer
-The Anathema is an item the player can pickup. When the player activates the Anathema, all enemies that the player encountered but didn't defeat (by running from the battle) will have there stats halved. 
-
-When the player encounter's an enemy it will start looking for a static ArrayList in Constants, if it has been defeated before with it's cursable method:
+The Anathema is an item the player can pick up. When the player activates the Anathema, all enemies that the player encountered but didn't defeat (by running from the battle) will have their stats halved. 
+ 
+When the player encounters an enemy it will start looking for a static ArrayList in Constants, if it has been defeated before with it's cursable method:
 https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main/java/nl/hr/touncursewerequirearumor/enemies/Enemy.java
-
-If the player hasn't defeated the enemy before it will start watching the Anathema, it will unwatch the Anathema if it had been defeated before. The Anathemma implements the observable method in order fot the enemy to watch it:
-
+ 
+If the player hasn't defeated the enemy before it will start watching the Anathema, it will unwatch the Anathema if it had been defeated before. The Anathema implements the observable method in order for the enemy to watch it:
+ 
 https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main/java/nl/hr/touncursewerequirearumor/items/Observable.java
-
-And the enemy implents the observer method in order to be notified of it's activation:
+ 
+And the enemy implements the observer method in order to be notified of its activation:
 https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main/java/nl/hr/touncursewerequirearumor/items/Observer.java
 
-## UML
-![alt text](https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/UML_To_Uncurse_We_Require_a_Rumor.jpg)
-
-## Library Used
-https://github.com/vsvankhede/EasyFonts
 
 ## Where to find examples of...
 ### Enumerations
@@ -75,7 +71,7 @@ https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/blob/master/app/src/main
 ### Namespaces 
 Can't use Java without it.
 
-### Polymorfism, Composition and Inherentance
+### Polymorphism, Composition and Inheritance
 Used on many places, take a look at the UML to see which ones were used where.
  
 
