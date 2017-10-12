@@ -6,8 +6,8 @@ https://github.com/HLA-systeem/ToUncurseWeRequireaRumor/tree/master/app/src/main
 
 All images in the game were made by me.
 
-~~Here's a link to a demo-run of the game:
-https://youtu.be/tu5wjrGiSKI~~
+Here's a link to a demo-run of the game:
+https://www.youtube.com/watch?v=VDM0R5VLnbQ
 
 ## Recommended way of running the game
 1. Use a real Android phone.
